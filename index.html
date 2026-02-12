@@ -1,52 +1,90 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Site Complet - Plandactions Soma Nova</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Tabbed Navigation Example</title>
+    <style>
+        /* Tab styles */
+        .tab {
+            overflow: hidden;
+            border: 1px solid #ccc;
+            background-color: #f1f1f1;
+        }
+        .tab button {
+            background-color: inherit;
+            border: none;
+            cursor: pointer;
+            float: left;
+            outline: none;
+            padding: 14px 16px;
+            transition: 0.3s;
+        }
+        .tab button:hover {
+            background-color: #ddd;
+        }
+        .tab button.active {
+            background-color: #ccc;
+        }
+        .tabcontent {
+            display: none;
+            padding: 6px 12px;
+            border: 1px solid #ccc;
+            border-top: none;
+        }
+    </style>
 </head>
 <body>
-    <div class="navbar">
-        <button class="tab" onclick="openTab('accueil')">Accueil</button>
-        <button class="tab" onclick="openTab('audit')">Audit</button>
-        <button class="tab" onclick="openTab('blog')">Blog</button>
-        <button class="tab" onclick="openTab('tunnel')">Tunnel de vente</button>
+
+    <div class="tab">
+        <button class="tablinks" onclick="openTab(event, 'Accueil')">Accueil</button>
+        <button class="tablinks" onclick="openTab(event, 'Audit')">Audit</button>
+        <button class="tablinks" onclick="openTab(event, 'Blog')">Blog</button>
+        <button class="tablinks" onclick="openTab(event, 'Tunnel')">Tunnel de vente</button>
     </div>
 
-    <div id="accueil" class="tabcontent">
-        <h1>Bienvenue sur notre site</h1>
-        <p>Détails de la section Accueil...</p>
-        <!-- Include original content here -->
+    <div id="Accueil" class="tabcontent">
+        <h3>Accueil</h3>
+        <p>Content for Accueil section.</p>
     </div>
 
-    <div id="audit" class="tabcontent" style="display:none;">
-        <h1>Audit</h1>
-        <p>Détails de la section Audit...</p>
-        <!-- Include original content here -->
+    <div id="Audit" class="tabcontent">
+        <h3>Audit</h3>
+        <p>Content for Audit section.</p>
     </div>
 
-    <div id="blog" class="tabcontent" style="display:none;">
-        <h1>Blog</h1>
-        <p>Détails de la section Blog...</p>
-        <!-- Include original content here -->
+    <div id="Blog" class="tabcontent">
+        <h3>Blog</h3>
+        <p>Content for Blog section.</p>
     </div>
 
-    <div id="tunnel" class="tabcontent" style="display:none;">
-        <h1>Tunnel de vente</h1>
-        <p>Détails de la section Tunnel de vente...</p>
-        <!-- Include original content here -->
+    <div id="Tunnel" class="tabcontent">
+        <h3>Tunnel de vente</h3>
+        <p>Content for Tunnel de vente section.</p>
     </div>
 
     <script>
-        function openTab(tabName) {
+        function openTab(evt, tabName) {
+            // Declare all variables
             var i, tabcontent, tablinks;
+
+            // Get all elements with class="tabcontent" and hide them
             tabcontent = document.getElementsByClassName("tabcontent");
             for (i = 0; i < tabcontent.length; i++) {
                 tabcontent[i].style.display = "none";
             }
+
+            // Get all elements with class="tablinks" and remove the class "active"
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+
+            // Show the current tab, and add an "active" class to the button that opened the tab
             document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
         }
     </script>
+
 </body>
 </html>
