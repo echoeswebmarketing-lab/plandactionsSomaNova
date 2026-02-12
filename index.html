@@ -1,1071 +1,778 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SOMA NOVA - Plan d'Action Stratégie Digitale</title>
-    <style>
-        :root {
-            --color-cream-50: rgba(252, 252, 249, 1);
-            --color-cream-100: rgba(255, 255, 253, 1);
-            --color-teal-300: rgba(50, 184, 198, 1);
-            --color-teal-500: rgba(33, 128, 141, 1);
-            --color-teal-600: rgba(29, 116, 128, 1);
-            --color-teal-700: rgba(26, 104, 115, 1);
-            --color-gray-200: rgba(245, 245, 245, 1);
-            --color-gray-300: rgba(167, 169, 169, 1);
-            --color-gray-400: rgba(119, 124, 124, 1);
-            --color-slate-500: rgba(98, 108, 113, 1);
-            --color-slate-900: rgba(19, 52, 59, 1);
-            --color-brown-600: rgba(94, 82, 64, 1);
-            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04);
-            --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.08);
-        }
+  <meta charset="UTF-8" />
+  <title>SOMA NOVA – Plan d’Action Stratégie Digitale</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    :root {
+      --color-cream-50: #fcfcf9;
+      --color-teal-300: #32b8c6;
+      --color-teal-500: #21808d;
+      --color-teal-600: #1d7480;
+      --color-gray-200: #f5f5f5;
+      --color-gray-300: #a7a9a9;
+      --color-gray-400: #777c7c;
+      --color-slate-500: #626c71;
+      --color-slate-900: #13343b;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.04);
+      --shadow-md: 0 4px 6px rgba(0,0,0,0.08);
+    }
+    * { box-sizing:border-box; margin:0; padding:0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--color-cream-50);
+      color: var(--color-slate-900);
+      line-height: 1.6;
+    }
+    a { color: var(--color-teal-600); }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    .header {
+      background:white;
+      border-bottom:2px solid var(--color-teal-300);
+      padding:16px 0;
+      position:sticky;
+      top:0;
+      z-index:100;
+      box-shadow:var(--shadow-sm);
+    }
+    .header-container {
+      max-width: 1200px;
+      margin:0 auto;
+      padding:0 20px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+    }
+    .logo {
+      font-weight:700;
+      font-size:20px;
+      color:var(--color-teal-600);
+    }
+    nav a {
+      font-size:14px;
+      color:var(--color-slate-500);
+      text-decoration:none;
+      margin-right:16px;
+    }
+    nav a:hover { color:var(--color-teal-600); }
+    .header-buttons { display:flex; gap:8px; }
+    .btn {
+      border:none;
+      border-radius:8px;
+      padding:8px 16px;
+      font-size:14px;
+      font-weight:600;
+      cursor:pointer;
+      transition:all .2s;
+    }
+    .btn-edit { background:var(--color-teal-500); color:white; }
+    .btn-edit:hover { background:var(--color-teal-600); }
+    .btn-print { background:var(--color-slate-500); color:white; }
+    .btn-print:hover { opacity:.9; }
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: var(--color-cream-50);
-            color: var(--color-slate-900);
-            line-height: 1.6;
-        }
+    .container { max-width:1000px; margin:32px auto; padding:0 20px; }
 
-        .header {
-            background: white;
-            border-bottom: 3px solid var(--color-teal-300);
-            padding: 20px;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: var(--shadow-sm);
-        }
+    .hero {
+      background:linear-gradient(135deg, var(--color-teal-500), var(--color-teal-600));
+      color:white;
+      padding:40px 24px;
+      border-radius:12px;
+      text-align:center;
+      box-shadow:var(--shadow-md);
+      margin-bottom:32px;
+    }
+    .hero h1 { font-size:28px; margin-bottom:8px; }
+    .hero p { font-size:16px; }
 
-        .header-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
+    .section {
+      background:white;
+      border-radius:12px;
+      padding:32px 24px;
+      margin-bottom:24px;
+      border-left:4px solid var(--color-teal-500);
+      box-shadow:var(--shadow-sm);
+    }
+    .section h2 {
+      font-size:22px;
+      margin-bottom:12px;
+      color:var(--color-teal-600);
+    }
+    .section h3 {
+      font-size:18px;
+      margin-top:20px;
+      margin-bottom:8px;
+      color:var(--color-slate-900);
+    }
+    .section p { margin-bottom:10px; color:var(--color-slate-500); }
 
-        .logo {
-            font-size: 24px;
-            font-weight: 700;
-            color: var(--color-teal-600);
-        }
+    .cards-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:16px;
+      margin:16px 0;
+    }
+    .card {
+      background:var(--color-gray-200);
+      padding:16px;
+      border-radius:10px;
+      border:1px solid var(--color-teal-300);
+      font-size:14px;
+    }
+    .card h4 {
+      font-size:15px;
+      margin-bottom:6px;
+      color:var(--color-teal-600);
+    }
 
-        .header-buttons {
-            display: flex;
-            gap: 12px;
-        }
+    .callout {
+      background:rgba(50,184,198,0.08);
+      border-left:4px solid var(--color-teal-500);
+      padding:16px;
+      border-radius:6px;
+      margin-top:12px;
+    }
 
-        .btn {
-            padding: 10px 20px;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            font-weight: 600;
-            font-size: 14px;
-            transition: all 0.3s ease;
-        }
+    ul { margin-left:20px; margin-top:4px; }
 
-        .btn-edit {
-            background: var(--color-teal-500);
-            color: white;
-        }
+    .pricing-table {
+      width:100%;
+      border-collapse:collapse;
+      margin-top:12px;
+      font-size:14px;
+    }
+    .pricing-table th {
+      background:var(--color-teal-500);
+      color:white;
+      padding:8px;
+      text-align:left;
+    }
+    .pricing-table td {
+      padding:8px;
+      border-bottom:1px solid var(--color-gray-200);
+    }
+    .pricing-old { text-decoration:line-through; color:var(--color-gray-400); }
+    .pricing-new { color:#d32f2f; font-weight:700; }
 
-        .btn-edit:hover {
-            background: var(--color-teal-600);
-        }
+    .tabs {
+      display:flex;
+      gap:8px;
+      border-bottom:1px solid var(--color-gray-200);
+      margin:16px 0 12px;
+    }
+    .tab-btn {
+      border:none;
+      background:transparent;
+      padding:8px 12px;
+      font-size:14px;
+      cursor:pointer;
+      font-weight:600;
+      color:var(--color-gray-400);
+      border-bottom:2px solid transparent;
+    }
+    .tab-btn.active {
+      color:var(--color-teal-600);
+      border-bottom-color:var(--color-teal-600);
+    }
+    .tab-content { display:none; font-size:14px; }
+    .tab-content.active { display:block; }
 
-        .btn-save {
-            background: #4CAF50;
-            color: white;
-        }
+    .footer {
+      background:var(--color-slate-900);
+      color:white;
+      text-align:center;
+      padding:24px 12px;
+      margin-top:32px;
+      font-size:13px;
+    }
+    .footer a { color:white; text-decoration:underline; }
 
-        .btn-save:hover {
-            background: #45a049;
-        }
-
-        .btn-cancel {
-            background: var(--color-gray-300);
-            color: white;
-        }
-
-        .container {
-            max-width: 1000px;
-            margin: 40px auto;
-            padding: 0 20px;
-        }
-
-        .hero {
-            background: linear-gradient(135deg, var(--color-teal-500) 0%, var(--color-teal-600) 100%);
-            color: white;
-            padding: 60px 40px;
-            border-radius: 12px;
-            margin-bottom: 40px;
-            text-align: center;
-            box-shadow: var(--shadow-md);
-        }
-
-        .hero h1 {
-            font-size: 36px;
-            margin-bottom: 15px;
-        }
-
-        .hero p {
-            font-size: 18px;
-            opacity: 0.95;
-        }
-
-        .edit-mode {
-            display: none;
-            background: rgba(0, 0, 0, 0.5);
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 200;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .edit-mode.active {
-            display: flex;
-        }
-
-        .edit-panel {
-            background: white;
-            border-radius: 12px;
-            padding: 40px;
-            max-width: 800px;
-            width: 90%;
-            max-height: 85vh;
-            overflow-y: auto;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-        }
-
-        .edit-panel h2 {
-            margin-bottom: 20px;
-            color: var(--color-teal-600);
-        }
-
-        .edit-field {
-            margin-bottom: 20px;
-        }
-
-        .edit-field label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 600;
-            color: var(--color-slate-900);
-        }
-
-        .edit-field input,
-        .edit-field textarea {
-            width: 100%;
-            padding: 12px;
-            border: 2px solid var(--color-gray-200);
-            border-radius: 6px;
-            font-family: inherit;
-            font-size: 14px;
-        }
-
-        .edit-field textarea {
-            resize: vertical;
-            min-height: 100px;
-        }
-
-        .edit-field input:focus,
-        .edit-field textarea:focus {
-            outline: none;
-            border-color: var(--color-teal-500);
-            box-shadow: 0 0 0 3px rgba(33, 128, 141, 0.1);
-        }
-
-        .edit-buttons {
-            display: flex;
-            gap: 10px;
-            margin-top: 30px;
-        }
-
-        .section {
-            background: white;
-            padding: 40px;
-            margin-bottom: 30px;
-            border-radius: 12px;
-            border-left: 5px solid var(--color-teal-500);
-            box-shadow: var(--shadow-sm);
-        }
-
-        .section h2 {
-            color: var(--color-teal-600);
-            margin-bottom: 20px;
-            font-size: 24px;
-        }
-
-        .section h3 {
-            color: var(--color-slate-900);
-            margin-top: 25px;
-            margin-bottom: 12px;
-            font-size: 18px;
-        }
-
-        .section p {
-            margin-bottom: 15px;
-            color: var(--color-slate-500);
-            line-height: 1.7;
-        }
-
-        .cards-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-            margin: 25px 0;
-        }
-
-        .card {
-            background: var(--color-gray-200);
-            padding: 20px;
-            border-radius: 10px;
-            border: 2px solid var(--color-teal-300);
-        }
-
-        .card h4 {
-            color: var(--color-teal-600);
-            margin-bottom: 10px;
-        }
-
-        .card p {
-            font-size: 14px;
-        }
-
-        .pricing-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-        }
-
-        .pricing-table th {
-            background: var(--color-teal-500);
-            color: white;
-            padding: 15px;
-            text-align: left;
-        }
-
-        .pricing-table td {
-            padding: 15px;
-            border-bottom: 1px solid var(--color-gray-200);
-        }
-
-        .pricing-table tr:hover {
-            background: var(--color-gray-200);
-        }
-
-        .pricing-old {
-            text-decoration: line-through;
-            color: var(--color-gray-400);
-        }
-
-        .pricing-new {
-            color: #d32f2f;
-            font-weight: 700;
-            font-size: 18px;
-        }
-
-        .callout {
-            background: rgba(50, 184, 198, 0.1);
-            border-left: 4px solid var(--color-teal-500);
-            padding: 20px;
-            margin: 20px 0;
-            border-radius: 6px;
-        }
-
-        .callout strong {
-            color: var(--color-teal-600);
-        }
-
-        .decision-box {
-            background: var(--color-gray-200);
-            padding: 20px;
-            margin: 20px 0;
-            border-radius: 8px;
-            border: 2px dashed var(--color-teal-500);
-        }
-
-        .option {
-            padding: 12px;
-            margin: 10px 0;
-            background: white;
-            border-left: 3px solid var(--color-teal-500);
-            border-radius: 4px;
-        }
-
-        .tabs {
-            display: flex;
-            gap: 10px;
-            border-bottom: 2px solid var(--color-gray-200);
-            margin-bottom: 20px;
-            flex-wrap: wrap;
-        }
-
-        .tab-btn {
-            padding: 12px 20px;
-            background: transparent;
-            border: none;
-            cursor: pointer;
-            font-weight: 600;
-            color: var(--color-gray-400);
-            border-bottom: 3px solid transparent;
-            transition: all 0.3s ease;
-        }
-
-        .tab-btn.active {
-            color: var(--color-teal-600);
-            border-bottom-color: var(--color-teal-600);
-        }
-
-        .tab-content {
-            display: none;
-        }
-
-        .tab-content.active {
-            display: block;
-        }
-
-        .footer {
-            background: var(--color-slate-900);
-            color: white;
-            padding: 30px;
-            text-align: center;
-            margin-top: 50px;
-        }
-
-        .footer p {
-            margin-bottom: 10px;
-        }
-
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 26px; }
-            .hero p { font-size: 16px; }
-            .header-container { flex-direction: column; }
-            .cards-grid { grid-template-columns: 1fr; }
-            .edit-panel { padding: 20px; }
-        }
-    </style>
+    @media (max-width:768px) {
+      .header-container { flex-direction:column; align-items:flex-start; }
+      .hero h1 { font-size:22px; }
+    }
+  </style>
 </head>
 <body>
 
-    <div class="header">
-        <div class="header-container">
-            <div class="logo">✨ SOMA NOVA</div>
-            <div class="header-buttons">
-                <button class="btn btn-edit" onclick="toggleEditMode()">✏️ Mode Édition</button>
-                <button class="btn" style="background: var(--color-slate-500);" onclick="window.print()">🖨️ Imprimer</button>
-            </div>
-        </div>
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-container">
+      <div class="logo">✨ SOMA NOVA</div>
+      <nav>
+        <a href="#audit">Audit</a>
+        <a href="#blog">Blog</a>
+        <a href="#tunnel">Tunnel de vente</a>
+      </nav>
+      <div class="header-buttons">
+        <button class="btn btn-edit" onclick="alert('Mode édition : copiez ce fichier dans votre éditeur et modifiez le texte directement.');">✏️ Mode édition</button>
+        <button class="btn btn-print" onclick="window.print()">🖨️ Imprimer / PDF</button>
+      </div>
     </div>
+  </header>
 
-    <div class="container">
+  <main class="container">
 
-        <div class="hero">
-            <h1>Plan d'Action Stratégie Digitale</h1>
-            <p>3 Semaines pour transformer votre présence en ligne et attirer vos clients idéaux</p>
+    <!-- HERO -->
+    <section class="hero">
+      <h1>Plan d’Action Stratégie Digitale – 3 semaines</h1>
+      <p>Ce plan est conçu spécifiquement pour Soma Nova, guidée par l’alètheia somatique et la reconnexion holistique vers l’autonomie créative.</p>
+    </section>
+
+    <!-- AUDIT -->
+    <section class="section" id="audit">
+      <h2>🔍 Audit stratégique & technique</h2>
+      <p>L’audit permet de vérifier que les fondations (message, site, technique) soutiennent réellement la transformation que vous proposez.</p>
+
+      <div class="cards-grid">
+        <div class="card">
+          <h4>1️⃣ Audit présence digitale</h4>
+          <p>Clarté du positionnement, cohérence du message, lisibilité des offres pour une personne en surcharge mentale.</p>
         </div>
-
-        <div class="section">
-            <h2>📋 Résumé du Plan</h2>
-            <p>Ce plan d'action est conçu spécifiquement pour <strong>Soma Nova</strong>, guidée par l'alètheia somatique et la reconnexi­on holistique vers l'autonomie créative.</p>
-            
-            <div class="cards-grid">
-                <div class="card">
-                    <h4>📌 Semaine 1</h4>
-                    <p><strong>Fondations</strong><br>Construire votre identité digitale solide et reconnaissable</p>
-                </div>
-                <div class="card">
-                    <h4>🚀 Semaine 2</h4>
-                    <p><strong>Communication</strong><br>Lancer vos canaux et générer des leads qualifiés</p>
-                </div>
-                <div class="card">
-                    <h4>💰 Semaine 3</h4>
-                    <p><strong>Scalabilité</strong><br>Mettre en place la vente automatisée et la croissance</p>
-                </div>
-            </div>
-
-            <div class="callout">
-                <strong>💡 Tarification attractive :</strong> Chaque étape = 1 000 € (vs 3 000-3 500 € tarif agence). Total : 3 000 € pour la transformation complète = 6 500 € d'économies !
-            </div>
+        <div class="card">
+          <h4>2️⃣ Audit technique</h4>
+          <p>Vitesse du site, affichage mobile, SEO de base, sécurité, tracking (Analytics, Search Console, pixels).</p>
         </div>
-
-        <div class="section">
-            <h2>🎯 Votre Cible & Positionnement Unique</h2>
-            
-            <h3>Avatar Principal</h3>
-            <div class="callout">
-                <strong>Professionnel(le) urbain(e) de 30-45 ans</strong><br>
-                Cadre ou indépendant(e) en burn-out/crise de sens, cherchant reconnexi­on corps-âme, autonomie créative et abondance authentique.<br>
-                <em>France et pays limitrophes</em>
-            </div>
-
-            <h3>Personas Détaillés (Approche Paritaire)</h3>
-            <div class="cards-grid">
-                <div class="card">
-                    <h4>👩 Sarah</h4>
-                    <p><strong>Cadre en burn-out</strong><br>32-38 ans<br>Cherche sens + reconnexion créative<br>Budget : 1 500-2 500€</p>
-                </div>
-                <div class="card">
-                    <h4>👨 Marc</h4>
-                    <p><strong>Entrepreneur en quête d'équilibre</strong><br>35-45 ans<br>Transformation authentique<br>Budget : 1 800-2 800€</p>
-                </div>
-                <div class="card">
-                    <h4>👩 Laure</h4>
-                    <p><strong>Femme en transition</strong><br>28-35 ans<br>Quête identitaire + communauté<br>Budget : 1 000-1 800€</p>
-                </div>
-            </div>
-
-            <h3>Votre Proposition de Valeur Unique</h3>
-            <div class="decision-box">
-                <h4>🌟 Ce qui vous différencie absolument</h4>
-                <div class="option">
-                    <strong>Guidage vers la souveraineté</strong><br>
-                    Reconnecter créativité et abondance authentique via le mouvement comme portail de transformation incarnée
-                </div>
-                <div class="option">
-                    <strong>Fusion disciplinaire unique</strong><br>
-                    Somatique + alètheia (dévoilement de la vérité incarnée) + jeu créatif + vision holistique
-                </div>
-                <div class="option">
-                    <strong>Format hybride intégré</strong><br>
-                    Présentiel (retraites, ateliers) + Formations en ligne + E-boutique de ressources et outils
-                </div>
-            </div>
-
-            <div class="callout">
-                <strong>📢 Tagline recommandée :</strong> "Laissez votre futur danser dans votre présent"
-            </div>
+        <div class="card">
+          <h4>3️⃣ Audit expérience client</h4>
+          <p>Parcours “première impression → prise de contact” : obstacles, frictions, informations manquantes.</p>
         </div>
+      </div>
 
-        <div class="section">
-            <h2>🎯 ÉTAPE 1 : CRÉATION DE L'IDENTITÉ</h2>
-            <p><em>Semaine 1 - Fondations Solides</em></p>
+      <div class="callout">
+        <strong>Livrable audit :</strong> rapport synthétique (PDF + éventuellement vidéo Loom) avec priorisation claire : “À corriger d’urgence”, “À optimiser”, “À garder”.
+      </div>
 
-            <div class="callout">
-                <strong>Tarif moyen agence : 3 200 € → Notre prix : 1 000 €</strong><br>
-                <strong>Économie : 2 200 €</strong>
-            </div>
+      <p style="font-size:12px; color:var(--color-gray-400); margin-top:8px;">
+        Le tout supervisé par un UX designer expérimenté dans le bien‑être : lisibilité, simplicité, réduction de la charge mentale.
+      </p>
+    </section>
 
-            <h3>A. STRATÉGIE & POSITIONNEMENT</h3>
-            <p>Comprendre votre marché et positionner votre offre de manière unique.</p>
-
-            <div class="cards-grid">
-                <div class="card">
-                    <h4>1️⃣ USP Clarifiée</h4>
-                    <p>Définir exactement ce qui vous rend unique (différent de yoga, coaching, ou thérapie classique)</p>
-                </div>
-                <div class="card">
-                    <h4>2️⃣ Étude Marché</h4>
-                    <p>Analyse concurrence + secteur souveraineté/bien-être holistique</p>
-                </div>
-                <div class="card">
-                    <h4>3️⃣ Personas & Cibles</h4>
-                    <p>Définir 3-4 avatars clients avec motivations, blocages, canaux préférés</p>
-                </div>
-            </div>
-
-            <h3>B. IDENTITÉ VISUELLE</h3>
-            <p>Créer une apparence professionnelle et mémorable.</p>
-
-            <div class="cards-grid">
-                <div class="card">
-                    <h4>4️⃣ Nom & Baseline</h4>
-                    <p>Validation du nom + création slogan accrocheur</p>
-                </div>
-                <div class="card">
-                    <h4>5️⃣ Logo Professionnel</h4>
-                    <p>Primary + déclinaisons (favicon, version carrée, noir & blanc)</p>
-                </div>
-                <div class="card">
-                    <h4>6️⃣ Charte Graphique</h4>
-                    <p>Couleurs, typographies, guide de style complet</p>
-                </div>
-            </div>
-
-            <h3>C. SITE WORDPRESS PROFESSIONNEL</h3>
-            <p>Votre vitrine digitale centralisée avec sections essentielles.</p>
-
-            <div class="decision-box">
-                <h4>🔄 Architecture & Pages Recommandées</h4>
-                <div class="option">
-                    <strong>Pages Essentielles :</strong> Accueil | À propos | Offres | Blog | Témoignages | FAQ | Contact
-                </div>
-                <div class="option">
-                    <strong>Sections Spéciales :</strong> Espace Formation (mini-courses, vidéos, accès) | E-boutique (ressources, guides PDF, outils)
-                </div>
-                <div class="option">
-                    <strong>Intégrations :</strong> Calendrier réservations | Paiement Stripe/PayPal | Newsletter Brevo
-                </div>
-            </div>
-
-            <div class="cards-grid">
-                <div class="card">
-                    <h4>7️⃣ Configuration WP</h4>
-                    <p>Installation, thème responsive, plugins SEO, sécurité, SSL</p>
-                </div>
-                <div class="card">
-                    <h4>8️⃣ Design & Mise en Page</h4>
-                    <p>Accueil captivante, pages services, social proof, optimisation conversion</p>
-                </div>
-                <div class="card">
-                    <h4>9️⃣ Templates Réutilisables</h4>
-                    <p>5-7 modèles pour rapidité future (blog, offres, formations)</p>
-                </div>
-            </div>
-
-            <h3>D. RÉFÉRENCEMENT & VISIBILITÉ</h3>
-            <p>Faire en sorte que votre site apparaisse quand on cherche "formation somatique", "coaching transformation", etc.</p>
-
-            <div class="cards-grid">
-                <div class="card">
-                    <h4>🔟 Stratégie Mots-Clés SEO</h4>
-                    <p>Recherche mots-clés pertinents (coaching holistique, souveraineté, transformation)</p>
-                </div>
-                <div class="card">
-                    <h4>1️⃣1️⃣ Optimisation On-Site</h4>
-                    <p>Titres, métas, vitesse, images, structure des données</p>
-                </div>
-                <div class="card">
-                    <h4>1️⃣2️⃣ Outils de Tracking</h4>
-                    <p>Google Analytics 4 | Search Console | Pixel Facebook | Hotjar (optionnel)</p>
-                </div>
-            </div>
-
-            <h3>E. RÉSEAUX SOCIAUX - PRÉSENCE STRATÉGIQUE</h3>
-            <p>Être visible où votre audience passe du temps.</p>
-
-            <div class="decision-box">
-                <h4>📱 Choix Stratégique des Plateformes</h4>
-                <p style="margin-bottom: 15px;"><strong>Pour votre cible (30-45 ans urbain, professionnel, crise de sens) :</strong></p>
-                
-                <div style="display: grid; gap: 12px;">
-                    <div class="option">
-                        <strong>✅ LinkedIn (PRIORITÉ 1)</strong><br>
-                        Atteindre cadres/indépendants en B2B. Contenu : articles pensée, témoignages professionnels, études marché
-                    </div>
-                    <div class="option">
-                        <strong>✅ Instagram (PRIORITÉ 2)</strong><br>
-                        Visuels inspirants, reels court-format, transformations, community building
-                    </div>
-                    <div class="option">
-                        <strong>✅ YouTube (PRIORITÉ 3)</strong><br>
-                        Tutoriels courts, témoignages vidéo, démonstrations, long-form pour SEO
-                    </div>
-                    <div class="option">
-                        <strong>🔶 TikTok (OPTIONNEL si cible jeune)</strong><br>
-                        Pour atteindre 25-35 ans. Viralité, shorts courts, humanité
-                    </div>
-                    <div class="option">
-                        <strong>🔶 Facebook (SUPPORT)</strong><br>
-                        Groupe communauté fermé + événements + publicités ciblées retraites
-                    </div>
-                </div>
-            </div>
-
-            <div class="cards-grid">
-                <div class="card">
-                    <h4>1️⃣3️⃣ Création Profils</h4>
-                    <p>Profils manquants + bio stratégique avec CTA</p>
-                </div>
-                <div class="card">
-                    <h4>1️⃣4️⃣ Optimisation</h4>
-                    <p>Bio + bannière + CTA buttons + liens linktree</p>
-                </div>
-                <div class="card">
-                    <h4>1️⃣5️⃣ Visuels Pro</h4>
-                    <p>30+ visuels statiques + stories templates + 3-5 vidéos courts</p>
-                </div>
-            </div>
-
-            <h3>✅ LIVÉRABLES ÉTAPE 1</h3>
-            <ul style="margin-left: 20px; margin-top: 15px;">
-                <li>Logo en 5 formats + charte graphique PDF</li>
-                <li>Site WordPress complètement opérationnel</li>
-                <li>Espace Formation opérationnel</li>
-                <li>E-boutique intégrée et active</li>
-                <li>5-7 templates de pages réutilisables</li>
-                <li>Tous profils réseaux créés et optimisés</li>
-                <li>Outils de tracking installés</li>
-                <li>30+ visuels prêts à poster</li>
-                <li>Documentation stratégie complète</li>
-                <li>Linktree ou page hub fonctionnelle</li>
-            </ul>
+    <!-- RÉSUMÉ PLAN -->
+    <section class="section">
+      <h2>📋 Résumé du plan</h2>
+      <div class="cards-grid">
+        <div class="card">
+          <h4>📌 Semaine 1 – Fondations</h4>
+          <p>Identité stratégique & visuelle, site, SEO et suivi.</p>
         </div>
-
-        <div class="section">
-            <h2>📢 ÉTAPE 2 : LANCEMENT DE LA COMMUNICATION</h2>
-            <p><em>Semaine 2 - Générer du Trafic & des Leads</em></p>
-
-            <div class="callout">
-                <strong>Tarif moyen agence : 2 800 € → Notre prix : 1 000 €</strong><br>
-                <strong>Économie : 1 800 €</strong>
-            </div>
-
-            <h3>A. STRATÉGIE ÉDITORIALE & CONTENU</h3>
-
-            <div class="cards-grid">
-                <div class="card">
-                    <h4>1️⃣ Ligne Éditoriale</h4>
-                    <p>Calendrier 3 mois, thématiques transformation, burn-out, souveraineté</p>
-                </div>
-                <div class="card">
-                    <h4>2️⃣ Lead Magnets</h4>
-                    <p>Offres gratuites pour capturer emails (voir proposition)</p>
-                </div>
-                <div class="card">
-                    <h4>3️⃣ Visuels 50+</h4>
-                    <p>Posts LinkedIn, Instagram stories, carrousels éducatifs</p>
-                </div>
-            </div>
-
-            <h3>🎁 LEAD MAGNETS - CHOIX STRATÉGIQUE</h3>
-            <div class="decision-box">
-                <h4>Quelle approche choisir ?</h4>
-                
-                <p style="margin-bottom: 15px; font-weight: 600; color: var(--color-teal-600);">✅ OPTION A : Guide PDF + Mini-Formation Vidéo (RECOMMANDÉ)</p>
-                <div class="option">
-                    <strong>Guide PDF Gratuit :</strong> "5 Mouvements Somatiques pour Retrouver Clarté & Autonomie"<br>
-                    Design attrayant, 8-12 pages, facile à partager
-                </div>
-                <div class="option">
-                    <strong>Mini-Formation Vidéo (Automatisée) :</strong> "Les Fondations de la Reconnexi­on Corps-Esprit"<br>
-                    3-5 vidéos (5-10 min chacune), livrées par email sur 5 jours<br>
-                    Conversion excellente en clients payants
-                </div>
-
-                <p style="margin-top: 15px; margin-bottom: 15px; font-weight: 600; color: var(--color-teal-600);">OPTION B : Quiz Interactif</p>
-                <div class="option">
-                    <strong>Quiz :</strong> "Quel type de transformation somatique vous correspond ?"<br>
-                    Résultat personnalisé → Email capturé | Taux conversion : 35-45%
-                </div>
-
-                <p style="margin-top: 15px; margin-bottom: 15px; font-weight: 600; color: var(--color-teal-600);">OPTION C : Accès Communauté Privée 7j</p>
-                <div class="option">
-                    <strong>Groupe Slack/Facebook :</strong> Contenus exclusifs, discussions, ressources
-                </div>
-
-                <p style="margin-top: 20px; padding: 15px; background: rgba(33, 128, 141, 0.1); border-left: 4px solid var(--color-teal-500); border-radius: 6px;">
-                    <strong>✅ RECOMMANDATION :</strong> OPTION A = Combinaison puissante pour service holistique/bien-être
-                </p>
-            </div>
-
-            <h3>B. NEWSLETTER & EMAIL MARKETING</h3>
-            <p>Construire une liste d'emails pour communication directe et ventes futures.</p>
-
-            <div class="decision-box">
-                <h4>🔄 AUTOMATION EMAIL - WELCOME SEQUENCE</h4>
-                <p style="margin-bottom: 15px;">Série automatisée quand quelqu'un s'inscrit :</p>
-                
-                <div class="option">
-                    <strong>Email 1 (instant) :</strong> Bienvenue + Accès lead magnet | Ouverture : 60-70%
-                </div>
-                <div class="option">
-                    <strong>Email 2 (jour 2) :</strong> Votre histoire + Valeur | Ouverture : 45-55%
-                </div>
-                <div class="option">
-                    <strong>Email 3 (jour 4) :</strong> Témoignage client réel | Ouverture : 40-50%
-                </div>
-                <div class="option">
-                    <strong>Email 4 (jour 7) :</strong> Offre spéciale (essai gratuit, réduction) | Conversion : 5-10%
-                </div>
-            </div>
-
-            <h3>C. CONTENU VIDÉO - LE FORMAT ESSENTIEL</h3>
-            <p>Format le plus viral et engageant pour montrer votre transformation.</p>
-
-            <div class="cards-grid">
-                <div class="card">
-                    <h4>4️⃣ Vidéo Présentation</h4>
-                    <p>1-2 min : Qui vous êtes, votre approche, résultats</p>
-                </div>
-                <div class="card">
-                    <h4>5️⃣ Courts 15-30sec</h4>
-                    <p>3-5 vidéos : Démos, bénéfices, avant/après</p>
-                </div>
-                <div class="card">
-                    <h4>6️⃣ Distribution Multi-Plateforme</h4>
-                    <p>YouTube, TikTok, Instagram Reels, Facebook, LinkedIn</p>
-                </div>
-            </div>
-
-            <h3>D. ÉVÉNEMENT SPÉCIAL - RETRAITE</h3>
-            <div class="callout">
-                <strong>Objectif :</strong> Vendre 10 places à 1 200 €/personne = 12 000 € CA<br>
-                <strong>Approche :</strong> Créer FOMO (peur de louper) via stratégie progressive
-            </div>
-
-            <div class="decision-box">
-                <h4>📅 Actions Marketing Retraite</h4>
-                <div class="option">Landing page dédiée ultra-optimisée</div>
-                <div class="option">Séquence 5 emails teaser (curiosité progressive)</div>
-                <div class="option">Publicités Facebook/Instagram ciblées</div>
-                <div class="option">Posts compte à rebours réseaux sociaux</div>
-                <div class="option">Webinaire gratuit de présentation (optionnel)</div>
-            </div>
-
-            <h3>E. OUTILS & AUTOMATION</h3>
-            <div class="cards-grid">
-                <div class="card">
-                    <h4>🤖 Templates IA</h4>
-                    <p>ChatGPT/Claude pour posts, emails (gain 80% temps)</p>
-                </div>
-                <div class="card">
-                    <h4>📅 Scheduling</h4>
-                    <p>Buffer/Later pour planifier mois de contenu</p>
-                </div>
-                <div class="card">
-                    <h4>🎨 Visuels IA</h4>
-                    <p>Midjourney/Leonardo pour images additionnelles</p>
-                </div>
-            </div>
-
-            <h3>✅ LIVÉRABLES ÉTAPE 2</h3>
-            <ul style="margin-left: 20px; margin-top: 15px;">
-                <li>Ligne éditoriale 3 mois détaillée</li>
-                <li>Lead magnet(s) complet(s)</li>
-                <li>50+ visuels professionnels</li>
-                <li>8 templates email</li>
-                <li>Welcome sequence complète</li>
-                <li>5+ vidéos de lancement (montées)</li>
-                <li>Landing page retraite optimisée</li>
-                <li>Calendrier contenu tous réseaux</li>
-                <li>Documentation templates IA</li>
-            </ul>
+        <div class="card">
+          <h4>🚀 Semaine 2 – Communication</h4>
+          <p>Contenus, lead magnets, newsletter, espace formation Système.io.</p>
         </div>
-
-        <div class="section">
-            <h2>🚀 ÉTAPE 3 : SCALABILITÉ & CROISSANCE</h2>
-            <p><em>Semaine 3 - Vendre & Grandir Intelligemment</em></p>
-
-            <div class="callout">
-                <strong>Tarif moyen agence : 3 500 € → Notre prix : 1 000 €</strong><br>
-                <strong>Économie : 2 500 €</strong>
-            </div>
-
-            <h3>A. TUNNEL DE VENTE OPTIMISÉ</h3>
-
-            <div class="decision-box">
-                <h4>🔄 Architecture du Tunnel</h4>
-                <div style="font-size: 13px; line-height: 1.8; margin-top: 10px;">
-                    <strong>AWARENESS</strong> → Découvrir via publicités/réseaux sociaux<br>
-                    ↓<br>
-                    <strong>CONSIDERATION</strong> → Visiter site, télécharger lead magnet<br>
-                    ↓<br>
-                    <strong>DECISION</strong> → Recevoir emails de vente<br>
-                    ↓<br>
-                    <strong>PURCHASE</strong> → Réserver/Acheter<br>
-                    ↓<br>
-                    <strong>LOYALTY</strong> → Clients récurrents via email + community
-                </div>
-            </div>
-
-            <div class="cards-grid">
-                <div class="card">
-                    <h4>1️⃣ Landing Pages Vente</h4>
-                    <p>4+ pages haute conversion (séances, ateliers, formations, retraite)</p>
-                </div>
-                <div class="card">
-                    <h4>2️⃣ Stratégie Pricing</h4>
-                    <p>Entry 50€ | Main 600€ | Premium 2000€ | Event 1200€</p>
-                </div>
-                <div class="card">
-                    <h4>3️⃣ Paiement & Réservation</h4>
-                    <p>Stripe/PayPal + emails automatiques confirmation</p>
-                </div>
-            </div>
-
-            <h3>B. PUBLICITÉS CIBLÉES & A/B TESTING</h3>
-
-            <div class="decision-box">
-                <h4>💡 Budget & Stratégie 3 Phases (500-1000€)</h4>
-                
-                <div class="option">
-                    <strong>PHASE 1 : Awareness (Semaine 1) - 300€</strong><br>
-                    Faire connaître votre marque | Audience : Bien-être 25-55 | Format : Vidéo + Carrousel
-                </div>
-
-                <div class="option">
-                    <strong>PHASE 2 : Lead Gen (Semaine 2) - 400€</strong><br>
-                    Récupérer emails | Audience : Visiteurs + lookalike | CTA : Télécharger gratuitement
-                </div>
-
-                <div class="option">
-                    <strong>PHASE 3 : Conversion (Semaine 3) - 300€</strong><br>
-                    Vendre | Audience : Interagis/Visité | CTA : Réserver maintenant
-                </div>
-            </div>
-
-            <div class="cards-grid">
-                <div class="card">
-                    <h4>4️⃣ Configuration Ads</h4>
-                    <p>Facebook/Instagram Ads complet</p>
-                </div>
-                <div class="card">
-                    <h4>5️⃣ A/B Testing</h4>
-                    <p>Tester versions trouver gagnante</p>
-                </div>
-                <div class="card">
-                    <h4>6️⃣ Optimisation Continue</h4>
-                    <p>Doubler budget meilleures annonces</p>
-                </div>
-            </div>
-
-            <h3>C. AUTOMATISATION & INTELLIGENCE ARTIFICIELLE</h3>
-
-            <div class="decision-box">
-                <h4>📧 Scénarios Email Automation</h4>
-
-                <div class="option">
-                    <strong>SCÉNARIO 1 : Panier Abandonné</strong><br>
-                    Email 1h, 24h, 48h après | ROI : 20-30% récupérés
-                </div>
-
-                <div class="option">
-                    <strong>SCÉNARIO 2 : Post-Purchase Upsell</strong><br>
-                    Jour 3, 7, 14 après achat | Vendre produits complémentaires
-                </div>
-
-                <div class="option">
-                    <strong>SCÉNARIO 3 : Re-engagement</strong><br>
-                    Clients inactifs 2 mois | Offre spéciale réactivation
-                </div>
-
-                <div class="option">
-                    <strong>SCÉNARIO 4 : Lead Nurturing B2B</strong><br>
-                    Prospect entreprise | Éducation → Cas client → Rendez-vous
-                </div>
-            </div>
-
-            <div class="cards-grid">
-                <div class="card">
-                    <h4>7️⃣ Email Automation</h4>
-                    <p>4 scénarios complets configurés</p>
-                </div>
-                <div class="card">
-                    <h4>8️⃣ Chatbot IA</h4>
-                    <p>24/7 répond FAQ, qualifie, prend RDV</p>
-                </div>
-                <div class="card">
-                    <h4>9️⃣ Retargeting</h4>
-                    <p>Pub pour gens visiteurs non-acheteurs</p>
-                </div>
-            </div>
-
-            <h3>D. GROWTH HACKING & B2B</h3>
-
-            <div class="decision-box">
-                <h4>💼 Stratégie B2B - Revenue Stream Additionnel</h4>
-
-                <div class="option">
-                    <strong>Ateliers Entreprise :</strong> "Transformation somatique" team-building (2 000-5 000€)
-                </div>
-
-                <div class="option">
-                    <strong>Formations RH :</strong> Intégrer bien-être holistique (1 500-3 000€)
-                </div>
-
-                <div class="option">
-                    <strong>Partenariats Studios :</strong> Co-brand, 20-40% revenue sharing
-                </div>
-
-                <p style="margin-top: 15px;"><strong>Prospects B2B :</strong> Hôpitaux | Psychothérapie | Yoga studios | Centres wellness | Entreprises</p>
-            </div>
-
-            <h3>E. REPORTING & OPTIMIZATION</h3>
-            <div class="cards-grid">
-                <div class="card">
-                    <h4>🔟 Dashboard Analytics</h4>
-                    <p>Traffic, conversions, revenue, CAC</p>
-                </div>
-                <div class="card">
-                    <h4>1️⃣1️⃣ Rapports Mensuels</h4>
-                    <p>Analyse + recommandations</p>
-                </div>
-                <div class="card">
-                    <h4>1️⃣2️⃣ Métriques Clés</h4>
-                    <p>Traffic | Conversion | CAC | LTV | ROI</p>
-                </div>
-            </div>
-
-            <h3>✅ LIVÉRABLES ÉTAPE 3</h3>
-            <ul style="margin-left: 20px; margin-top: 15px;">
-                <li>4+ landing pages haute conversion</li>
-                <li>Campagne Facebook/Instagram (20+ variations testées)</li>
-                <li>Email automation 4 scénarios complets</li>
-                <li>Chatbot IA configuré et entraîné</li>
-                <li>Retargeting pixel configuré</li>
-                <li>Stratégie B2B avec prospects identifiés</li>
-                <li>CRM configuré avec workflows</li>
-                <li>Dashboard analytics personnalisé</li>
-                <li>Documentation sales process</li>
-                <li>Rapports optimisations & recommandations</li>
-            </ul>
+        <div class="card">
+          <h4>💰 Semaine 3 – Scalabilité</h4>
+          <p>Tunnel de vente, publicités, automatisations, B2B.</p>
         </div>
+      </div>
 
-        <div class="section">
-            <h2>🎯 RÉSUMÉ TARIFICATION</h2>
-            
-            <table class="pricing-table">
-                <thead>
-                    <tr>
-                        <th>Étape</th>
-                        <th>Tarif Moyen Agence</th>
-                        <th>Notre Prix</th>
-                        <th>Économie</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>1. Identité</strong></td>
-                        <td class="pricing-old">3 200 €</td>
-                        <td class="pricing-new">1 000 €</td>
-                        <td style="color: #4CAF50; font-weight: 700;">+2 200 €</td>
-                    </tr>
-                    <tr>
-                        <td><strong>2. Communication</strong></td>
-                        <td class="pricing-old">2 800 €</td>
-                        <td class="pricing-new">1 000 €</td>
-                        <td style="color: #4CAF50; font-weight: 700;">+1 800 €</td>
-                    </tr>
-                    <tr>
-                        <td><strong>3. Scalabilité</strong></td>
-                        <td class="pricing-old">3 500 €</td>
-                        <td class="pricing-new">1 000 €</td>
-                        <td style="color: #4CAF50; font-weight: 700;">+2 500 €</td>
-                    </tr>
-                    <tr style="background: var(--color-teal-300); color: white; font-weight: 700;">
-                        <td>TOTAL</td>
-                        <td class="pricing-old" style="color: white;">9 500 €</td>
-                        <td class="pricing-new" style="color: white;">3 000 €</td>
-                        <td>+6 500 €</td>
-                    </tr>
-                </tbody>
-            </table>
+      <div class="callout">
+        Chaque étape vaut en moyenne entre 2 800 € et 3 500 € en agence classique.  
+        <strong>Ici : 1 000 € par étape, soit 3 000 € au total (9 500 € → 3 000 €).</strong>
+      </div>
+    </section>
 
-            <div class="callout">
-                <strong>💰 OFFRE COMPLÈTE 3 ÉTAPES :</strong><br>
-                <strong style="color: #d32f2f; font-size: 18px;">9 500 € → 3 000 €</strong><br>
-                Économie de 6 500 € pour la transformation digitale complète !
-            </div>
+    <!-- PERSONAS / USP (résumé) -->
+    <section class="section">
+      <h2>🎯 Cible & positionnement</h2>
+      <h3>Avatar principal</h3>
+      <div class="callout">
+        Professionnel(le) urbain(e) de 30–45 ans, cadre ou indépendant(e) en burn‑out / crise de sens,  
+        cherchant une reconnexion corps‑âme et une souveraineté créative durable.
+      </div>
+
+      <h3>Personas clés</h3>
+      <div class="cards-grid">
+        <div class="card">
+          <h4>👩 Sarah – Cadre en burn‑out</h4>
+          <p>32–38 ans, très investie, épuisée, cherche à retrouver du sens et sa créativité. Budget : 1 500–2 500 €.</p>
         </div>
-
-        <div class="section">
-            <h2>💡 OPTIONS SUPPLÉMENTAIRES</h2>
-
-            <div class="cards-grid">
-                <div class="card">
-                    <h4>+ Vidéo Premium</h4>
-                    <p>10 vidéos courts<br><strong>+300€</strong></p>
-                </div>
-                <div class="card">
-                    <h4>+ Webinaire</h4>
-                    <p>Lancement en direct 30-45 min<br><strong>+400€</strong></p>
-                </div>
-                <div class="card">
-                    <h4>+ Design Premium</h4>
-                    <p>Illustrations custom<br><strong>+500€</strong></p>
-                </div>
-                <div class="card">
-                    <h4>+ Coaching</h4>
-                    <p>2h/mois pendant 3 mois<br><strong>+600€</strong></p>
-                </div>
-            </div>
+        <div class="card">
+          <h4>👨 Marc – Entrepreneur en quête d’équilibre</h4>
+          <p>35–45 ans, réussi extérieurement, vide intérieurement. Veut une transformation profonde mais concrète. Budget : 1 800–2 800 €.</p>
         </div>
-
-        <div class="section" style="background: linear-gradient(135deg, var(--color-teal-500) 0%, var(--color-teal-600) 100%); color: white; text-align: center;">
-            <h2 style="color: white;">🚀 TRANSFORMEZ VOTRE PRÉSENCE</h2>
-            <p style="color: white; font-size: 18px; margin: 30px 0;">Prêt(e) à attirer vos clients idéaux ?</p>
-            <button class="btn" style="background: white; color: var(--color-teal-600); font-weight: 700; padding: 15px 40px; font-size: 16px;">
-                📅 Réserver Appel Gratuit
-            </button>
+        <div class="card">
+          <h4>👩 Laure – En transition</h4>
+          <p>28–35 ans, en reconversion, en quête d’identité et de communauté. Budget : 1 000–1 800 €.</p>
         </div>
+      </div>
 
-    </div>
+      <h3>Proposition de valeur</h3>
+      <div class="callout">
+        Guidance du mouvement vers la souveraineté : une pratique somatique qui utilise le corps comme portail temporel,  
+        pour reconnecter créativité, abondance authentique et vérité incarnée (alètheia).
+      </div>
+    </section>
 
-    <div class="edit-mode" id="editMode">
-        <div class="edit-panel">
-            <h2>✏️ Mode Édition</h2>
-            <p style="margin-bottom: 20px; color: var(--color-gray-400);">Modifiez et validez vos changements</p>
+    <!-- ÉTAPE 1 -->
+    <section class="section">
+      <h2>🎯 Étape 1 – Création de l’identité (Semaine 1)</h2>
+      <div class="callout">
+        <strong>Tarif moyen agence : 3 200 € → Notre prix : 1 000 € (économie 2 200 €).</strong>
+      </div>
 
-            <div class="tabs">
-                <button class="tab-btn active" onclick="switchTab('edit-section-1')">Personas</button>
-                <button class="tab-btn" onclick="switchTab('edit-section-2')">USP</button>
-                <button class="tab-btn" onclick="switchTab('edit-section-3')">Lead Magnets</button>
-            </div>
+      <h3>A. Stratégie & positionnement</h3>
+      <ul>
+        <li>Clarification de l’USP (différence nette avec yoga, coaching classique, thérapie).</li>
+        <li>Analyse concurrentielle dans le champ souveraineté / somatique / bien‑être holistique.</li>
+        <li>Formalisation de 3–4 personas détaillés (motivations, peurs, objections, canaux).</li>
+      </ul>
 
-            <div id="edit-section-1" class="tab-content active">
-                <div class="edit-field">
-                    <label>Avatar Principal</label>
-                    <textarea id="editPersona">Professionnel(le) urbain(e) de 30-45 ans, cadre ou indépendant(e) en burn-out/crise de sens, cherchant reconnexi­on corps-âme et abondance authentique</textarea>
-                </div>
-            </div>
+      <h3>B. Identité visuelle</h3>
+      <ul>
+        <li>Validation du nom + création d’une baseline alignée avec votre univers.</li>
+        <li>Création d’un logo principal + déclinaisons (favicon, format réseaux sociaux, N&B).</li>
+        <li>Charte graphique complète : palette couleurs, typographies, usages.</li>
+      </ul>
 
-            <div id="edit-section-2" class="tab-content">
-                <div class="edit-field">
-                    <label>Proposition de Valeur</label>
-                    <textarea id="editUSP">Guidage vers la souveraineté - Reconnecter créativité et abundance authentique via le mouvement comme portail de transformation incarnée</textarea>
-                </div>
-                <div class="edit-field">
-                    <label>Tagline</label>
-                    <textarea id="editTagline">Laissez votre futur danser dans votre présent</textarea>
-                </div>
-            </div>
+      <h3>C. Site WordPress professionnel</h3>
+      <ul>
+        <li>Installation WordPress, thème responsive, plugins essentiels (SEO, sécurité, formulaires, cache).</li>
+        <li>Pages clés : Accueil, À propos, Offres (séances, retraites, formations), Blog, Témoignages, FAQ, Contact.</li>
+        <li>5–7 modèles réutilisables (pages offres, articles, ateliers, retraites).</li>
+      </ul>
 
-            <div id="edit-section-3" class="tab-content">
-                <div class="edit-field">
-                    <label>Lead Magnet Recommandé</label>
-                    <textarea id="editLeadMagnet">Option A : Guide PDF + Mini-Formation Vidéo - Combinaison puissante pour service holistique/bien-être</textarea>
-                </div>
-            </div>
+      <h3>D. Référencement & visibilité</h3>
+      <ul>
+        <li>Recherche de mots‑clés autour de la transformation somatique, du burn‑out et de la souveraineté.</li>
+        <li>Optimisation on‑site : titres, métas, structure Hn, vitesse, images, données structurées.</li>
+        <li>Installation et configuration de Google Analytics 4, Search Console, Pixel Facebook, Hotjar (optionnel).</li>
+      </ul>
 
-            <div class="edit-buttons">
-                <button class="btn btn-save" onclick="saveChanges()">✓ Valider</button>
-                <button class="btn btn-cancel" onclick="toggleEditMode()">✕ Annuler</button>
-            </div>
+      <h3>E. Réseaux sociaux – présence de base</h3>
+      <ul>
+        <li>Création / optimisation des profils prioritaires : LinkedIn, Instagram, YouTube, Facebook.</li>
+        <li>Bios stratégiques avec appel à l’action clair et lien vers votre hub (Linktree ou page dédiée).</li>
+        <li>Pack d’environ 30 visuels + 3–5 vidéos courtes pour le lancement.</li>
+      </ul>
+
+      <h3>F. Suivi référencement sur 12 mois</h3>
+      <ul>
+        <li>Suivi mensuel des mots‑clés principaux et du trafic organique.</li>
+        <li>Vérification régulière Search Console (erreurs, pages non indexées, requêtes émergentes).</li>
+        <li>Mini‑rapport trimestriel avec recommandations simples (nouveaux articles, optimisations ciblées).</li>
+      </ul>
+
+      <h3>✅ Livrables étape 1</h3>
+      <ul>
+        <li>Document de positionnement (USP, personas, axes de communication).</li>
+        <li>Logo + charte graphique en PDF.</li>
+        <li>Site WordPress en ligne, sécurisé, optimisé SEO de base.</li>
+        <li>Profils réseaux sociaux configurés et cohérents.</li>
+        <li>Outils de tracking configurés.</li>
+        <li>Pack visuels de base et kit de démarrage.</li>
+        <li>Plan de suivi SEO sur 12 mois.</li>
+      </ul>
+    </section>
+
+    <!-- ÉTAPE 2 -->
+    <section class="section">
+      <h2>📢 Étape 2 – Lancement de la communication (Semaine 2)</h2>
+      <div class="callout">
+        <strong>Tarif moyen agence : 2 800 € → Notre prix : 1 000 € (économie 1 800 €).</strong>
+      </div>
+
+      <h3>A. Stratégie éditoriale & contenus</h3>
+      <ul>
+        <li>Ligne éditoriale sur 3 mois (thèmes : burn‑out, souveraineté, corps comme portail, témoignages).</li>
+        <li>Calendrier de publication par canal (LinkedIn, Instagram, newsletter, YouTube).</li>
+        <li>Création de 50+ visuels pour posts, stories et carrousels éducatifs.</li>
+      </ul>
+
+      <h3>B. Lead magnets & mini‑formations</h3>
+      <p>Choix stratégique parmi plusieurs formats :</p>
+      <ul>
+        <li><strong>Option A (recommandée) :</strong> Guide PDF + mini‑formation vidéo par email.</li>
+        <li>Option B : Quiz interactif (“Quel type de transformation somatique vous correspond ?”).</li>
+        <li>Option C : Accès 7 jours à une communauté privée.</li>
+      </ul>
+      <p>Pour Soma Nova, l’Option A est privilégiée : elle montre la profondeur de votre approche tout en restant accessible.</p>
+
+      <h3>C. Newsletter & email marketing</h3>
+      <ul>
+        <li>Choix et configuration de la plateforme (Brevo ou équivalent) + intégration site.</li>
+        <li>Création de 8 modèles d’emails (newsletter, promotions, séquence de bienvenue, confirmations).</li>
+        <li>Séquence de bienvenue automatisée (4–5 emails de présentation, valeur, témoignages, première offre).</li>
+      </ul>
+
+      <h3>D. Contenu vidéo</h3>
+      <ul>
+        <li>1 vidéo de présentation (1–2 min) : qui vous êtes, à qui vous vous adressez, ce que vous proposez.</li>
+        <li>3–5 vidéos courtes (15–30 s) pour Reels / TikTok / Shorts.</li>
+        <li>Plan de diffusion multi‑plateformes (YouTube, Instagram, Facebook, LinkedIn).</li>
+      </ul>
+
+      <h3>E. Espace Formation opérationnel (Système.io)</h3>
+      <ul>
+        <li>Création et configuration du compte Système.io.</li>
+        <li>Structure d’espace : mini‑formations gratuites, programmes payants, bonus de retraite.</li>
+        <li>Paramétrage des accès : inscription → accès automatique à la formation, rappels de progression, upsells.</li>
+        <li>Lien fluide avec le site WordPress (boutons “Accéder à mon espace” et pages de vente).</li>
+      </ul>
+
+      <h3>F. Outils & automatisation légère</h3>
+      <ul>
+        <li>Templates IA (ChatGPT, etc.) pour rédiger plus vite posts, emails, idées d’articles.</li>
+        <li>Configuration d’un outil de planification (Buffer, Later…) pour automatiser la publication.</li>
+      </ul>
+
+      <h3>✅ Livrables étape 2</h3>
+      <ul>
+        <li>Ligne éditoriale 3 mois.</li>
+        <li>Lead magnet(s) complet(s) (PDF, mini‑formation, quiz…).</li>
+        <li>50+ visuels social media.</li>
+        <li>8 templates email + séquence de bienvenue active.</li>
+        <li>Pack vidéo de lancement.</li>
+        <li>Espace formation Système.io fonctionnel.</li>
+        <li>Outils d’automatisation basique installés.</li>
+      </ul>
+    </section>
+
+    <!-- ÉTAPE 3 -->
+    <section class="section">
+      <h2>🚀 Étape 3 – Scalabilité & croissance (Semaine 3)</h2>
+      <div class="callout">
+        <strong>Tarif moyen agence : 3 500 € → Notre prix : 1 000 € (économie 2 500 €).</strong>
+      </div>
+
+      <h3>A. Tunnel de vente & offres</h3>
+      <ul>
+        <li>Création de 4+ pages de vente (séances, ateliers, formations, retraite).</li>
+        <li>Structuration de l’offre : entrée (50 €), offre principale (600 €), premium (2 000 €), retraite (1 200 €).</li>
+        <li>Intégration Stripe / PayPal + emails automatiques de confirmation.</li>
+      </ul>
+
+      <h3>B. Publicités & tests</h3>
+      <ul>
+        <li>Setup de campagnes Facebook / Instagram Ads.</li>
+        <li>Scénario 3 phases : awareness, leads, conversion vers la retraite.</li>
+        <li>A/B tests simples sur les visuels, titres et audiences.</li>
+      </ul>
+
+      <h3>C. Automatisation & IA</h3>
+      <ul>
+        <li>4 scénarios d’emails automatisés (panier abandonné, post‑achat, réactivation, B2B).</li>
+        <li>Chatbot de base pour répondre aux questions fréquentes et qualifier les demandes.</li>
+        <li>Retargeting pixel : relancer les visiteurs n’ayant pas encore réservé.</li>
+      </ul>
+
+      <h3>D. B2B & growth</h3>
+      <ul>
+        <li>Stratégie d’approche B2B (entreprises, hôpitaux, studios, centres bien‑être).</li>
+        <li>Messages types LinkedIn + emails d’approche.</li>
+        <li>Mise en place ou adaptation d’un mini‑CRM (HubSpot gratuit ou équivalent).</li>
+      </ul>
+
+      <h3>E. Reporting & optimisation</h3>
+      <ul>
+        <li>Dashboard simplifié : trafic, leads, réservations, coût d’acquisition, valeur client.</li>
+        <li>Premier rapport d’optimisation après tests des campagnes.</li>
+      </ul>
+
+      <h3>✅ Livrables étape 3</h3>
+      <ul>
+        <li>Pages de vente prêtes pour la conversion.</li>
+        <li>Campagnes publicitaires configurées.</li>
+        <li>Scénarios d’emails automatisés.</li>
+        <li>Chatbot configuré.</li>
+        <li>Base de stratégie B2B et CRM simple.</li>
+        <li>Dashboard et rapport initial.</li>
+      </ul>
+    </section>
+
+    <!-- BLOG ENRICHI -->
+    <section class="section" id="blog">
+      <h2>📰 Blog : trafic, autorité & relation</h2>
+      <p>Le blog est un pilier pour attirer du trafic qualifié, devenir une référence et créer une relation de confiance avec vos lecteurs.</p>
+
+      <div class="cards-grid">
+        <div class="card">
+          <h4>📈 Trafic</h4>
+          <p>Articles optimisés sur les questions de vos personas : burn‑out, crise de sens, souveraineté, corps comme portail.</p>
         </div>
-    </div>
+        <div class="card">
+          <h4>🌟 Autorité</h4>
+          <p>Guides approfondis, analyses, cas pratiques : vous démontrez la maîtrise de votre sujet.</p>
+        </div>
+        <div class="card">
+          <h4>🤝 Relation</h4>
+          <p>Ton humain, histoires personnelles, vulnérabilité : vos lectrices se sentent vues et accompagnées.</p>
+        </div>
+      </div>
 
-    <div class="footer">
-        <p><strong>Julien Parinaud</strong></p>
-        <p>Stratégiste Digitale</p>
-        <p>📧 Echoeswebmarketing@gmail.com</p>
-        <p style="margin-top: 20px; font-size: 12px; color: rgba(255, 255, 255, 0.7);">Document confidentiel - Plan d'action personnalisé pour SOMA NOVA</p>
-        <p style="font-size: 12px; color: rgba(255, 255, 255, 0.5);">Réalisé le 12 février 2026</p>
-    </div>
+      <div class="tabs">
+        <button class="tab-btn active" onclick="switchBlogTab('blog-role')">Rôle du blog</button>
+        <button class="tab-btn" onclick="switchBlogTab('blog-contenu')">Types d’articles</button>
+        <button class="tab-btn" onclick="switchBlogTab('blog-diffusion')">Diffusion</button>
+      </div>
 
-    <script>
-        function toggleEditMode() {
-            document.getElementById('editMode').classList.toggle('active');
-        }
+      <div id="blog-role" class="tab-content active">
+        <p>Le blog sert à :</p>
+        <ul>
+          <li>Répondre aux questions précises de vos clients au moment où ils doutent.</li>
+          <li>Créer un actif long terme : un article peut attirer des lecteurs pendant des années.</li>
+          <li>Préparer naturellement la vente : vos offres prolongent le contenu gratuit.</li>
+        </ul>
+      </div>
 
-        function switchTab(tabId) {
-            document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
-            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-            document.getElementById(tabId).classList.add('active');
-            event.target.classList.add('active');
-        }
+      <div id="blog-contenu" class="tab-content">
+        <p>Quatre familles d’articles recommandées :</p>
+        <ul>
+          <li>Guides “fondations” (longs) : burn‑out, transformation somatique, souveraineté.</li>
+          <li>Études de cas anonymisées : avant / après, processus de transformation.</li>
+          <li>Articles pratiques : 3 exercices, micro‑rituels, questions à se poser.</li>
+          <li>Articles de vision : rôle du temps, du corps, de l’alètheia dans votre approche.</li>
+        </ul>
+      </div>
 
-        function saveChanges() {
-            alert('✅ Changements validés ! Le document a été mis à jour.');
-            toggleEditMode();
-        }
-    </script>
+      <div id="blog-diffusion" class="tab-content">
+        <p>Amplifier l’impact des articles :</p>
+        <ul>
+          <li>Relais sur Instagram, LinkedIn et newsletter à chaque nouvelle publication.</li>
+          <li>Contenus invités sur d’autres blogs / podcasts pour toucher de nouveaux publics.</li>
+          <li>Intégration de vidéos et/ou podcasts dans les articles pour renforcer la relation.</li>
+        </ul>
+      </div>
 
+      <h3>Sources de trafic principales</h3>
+      <div class="cards-grid">
+        <div class="card">
+          <h4>🔎 Google</h4>
+          <p>Référencement naturel grâce aux articles ciblés sur vos mots‑clés.</p>
+        </div>
+        <div class="card">
+          <h4>👥 Réseaux sociaux</h4>
+          <p>Posts qui teasent les articles et renvoient vers le site.</p>
+        </div>
+        <div class="card">
+          <h4>💌 Newsletter</h4>
+          <p>Emails qui renvoient régulièrement vers les ressources du blog.</p>
+        </div>
+        <div class="card">
+          <h4>🤝 Partenariats</h4>
+          <p>Articles invités, interviews et collaborations.</p>
+        </div>
+      </div>
+
+      <p style="font-size:12px; color:var(--color-gray-400); margin-top:8px;">
+        UX pensée pour le bien‑être : pages aérées, titres lisibles, lecture confortable même quand l’esprit est déjà saturé.
+      </p>
+    </section>
+
+    <!-- TUNNEL DE VENTE ENRICHI -->
+    <section class="section" id="tunnel">
+      <h2>🧬 Tunnel de vente : du trafic à la retraite</h2>
+      <p>Le tunnel de vente rend votre croissance prévisible : vous savez combien de personnes doivent entrer pour remplir vos retraites et vos programmes.</p>
+
+      <div class="callout">
+        <strong>Idée clé :</strong> ce n’est pas le manque de visibilité, mais la conversion qui fait la différence.  
+        Le tunnel permet de mesurer et d’améliorer chaque étape.
+      </div>
+
+      <h3>3 grandes phases</h3>
+      <div class="cards-grid">
+        <div class="card">
+          <h4>1️⃣ Attraction</h4>
+          <p>Contenus + publicités ciblées vers vos personas en crise de sens.</p>
+        </div>
+        <div class="card">
+          <h4>2️⃣ Éducation</h4>
+          <p>Lead magnets, mini‑formations, emails de valeur pour créer la confiance.</p>
+        </div>
+        <div class="card">
+          <h4>3️⃣ Conversion</h4>
+          <p>Pages de vente, VSL, appels découverte pour proposer vos offres.</p>
+        </div>
+      </div>
+
+      <h3>Architectures de tunnels adaptées à Soma Nova</h3>
+      <div class="cards-grid">
+        <div class="card">
+          <h4>💬 Conversationnel</h4>
+          <p>Posts organiques → échanges en messages privés → proposition d’accompagnement premium ou retraite.</p>
+        </div>
+        <div class="card">
+          <h4>🎁 Échantillon offert</h4>
+          <p>Mini‑formation / module offert sur Système.io → emails → offre complète (programme ou retraite).</p>
+        </div>
+        <div class="card">
+          <h4>🎥 Vidéo de vente (VSL)</h4>
+          <p>Vidéo de 8–15 minutes qui vend un programme / une retraite 24h/24, intégrée à votre page.</p>
+        </div>
+      </div>
+
+      <h3>Exemple de chiffres pédagogiques – Retraite (10 places)</h3>
+      <ul>
+        <li>2 000 visites sur la page de capture (contenu + pub).</li>
+        <li>30 % laissent leur email → 600 inscrits.</li>
+        <li>10 % des inscrits deviennent “clientes chaudes” → 60 personnes.</li>
+        <li>Entre 15 et 20 % de ces 60 s’inscrivent à la retraite → 9 à 12 ventes (objectif : 10 places).</li>
+      </ul>
+
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:16px; margin-top:16px;">
+        <div class="card">
+          <h4>Conversions par étape</h4>
+          <canvas id="funnelBarChart" width="260" height="200"></canvas>
+        </div>
+        <div class="card">
+          <h4>Répartition du chiffre d’affaires</h4>
+          <canvas id="funnelPieChart" width="260" height="200"></canvas>
+        </div>
+      </div>
+
+      <p style="font-size:12px; color:var(--color-gray-400); margin-top:8px;">
+        Chiffres indicatifs, à affiner avec vos données : l’important est de pouvoir suivre et améliorer chaque maillon.
+      </p>
+    </section>
+
+    <!-- RÉCAP TARIFS -->
+    <section class="section">
+      <h2>🎯 Récapitulatif tarification</h2>
+      <table class="pricing-table">
+        <thead>
+        <tr>
+          <th>Étape</th>
+          <th>Tarif moyen agence</th>
+          <th>Notre prix</th>
+          <th>Économie</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>1. Identité</td>
+          <td class="pricing-old">3 200 €</td>
+          <td class="pricing-new">1 000 €</td>
+          <td style="color:green; font-weight:700;">+2 200 €</td>
+        </tr>
+        <tr>
+          <td>2. Communication</td>
+          <td class="pricing-old">2 800 €</td>
+          <td class="pricing-new">1 000 €</td>
+          <td style="color:green; font-weight:700;">+1 800 €</td>
+        </tr>
+        <tr>
+          <td>3. Scalabilité</td>
+          <td class="pricing-old">3 500 €</td>
+          <td class="pricing-new">1 000 €</td>
+          <td style="color:green; font-weight:700;">+2 500 €</td>
+        </tr>
+        <tr style="background:var(--color-teal-300); color:white; font-weight:700;">
+          <td>Total</td>
+          <td class="pricing-old" style="color:white;">9 500 €</td>
+          <td class="pricing-new" style="color:white;">3 000 €</td>
+          <td>+6 500 €</td>
+        </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- OPTIONS -->
+    <section class="section">
+      <h2>💡 Options supplémentaires</h2>
+      <div class="cards-grid">
+        <div class="card">
+          <h4>Contenu vidéo premium</h4>
+          <p>10 vidéos courtes au lieu de 5.<br><strong>+300 €</strong></p>
+        </div>
+        <div class="card">
+          <h4>Webinaire de lancement</h4>
+          <p>Session live 30–45 min avec replay.<br><strong>+400 €</strong></p>
+        </div>
+        <div class="card">
+          <h4>Design graphique premium</h4>
+          <p>Illustrations originales spécifiques à Soma Nova.<br><strong>+500 €</strong></p>
+        </div>
+        <div class="card">
+          <h4>Coaching d’implémentation</h4>
+          <p>2h/mois pendant 3 mois.<br><strong>+600 €</strong></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- BLOC FINAL (sans CTA bouton) -->
+    <section class="section" style="background:linear-gradient(135deg,var(--color-teal-500),var(--color-teal-600)); color:white; text-align:center;">
+      <h2 style="color:white;">Accompagnement Soma Nova</h2>
+      <p style="margin-top:8px;">Pour affiner, ajuster ou lancer ce plan ensemble :</p>
+      <p style="margin-top:16px; font-size:16px;">Julien Parinaud</p>
+      <p>Stratégiste Digitale</p>
+      <p>
+        📧
+        <a href="mailto:Echoeswebmarketing@gmail.com" style="color:white; text-decoration:underline;">
+          Echoeswebmarketing@gmail.com
+        </a>
+      </p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Document confidentiel – Plan d’action personnalisé pour SOMA NOVA.</p>
+    <p>Design pensé avec une approche UX bien‑être (clarté, douceur, sécurité).</p>
+  </footer>
+
+  <script>
+    function switchBlogTab(id) {
+      document.querySelectorAll('#blog .tab-content').forEach(el => el.classList.remove('active'));
+      document.querySelectorAll('#blog .tab-btn').forEach(el => el.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+      event.target.classList.add('active');
+    }
+
+    window.addEventListener('load', function() {
+      const bar = document.getElementById('funnelBarChart');
+      if (bar && bar.getContext) {
+        const ctx = bar.getContext('2d');
+        const labels = ['Visiteurs', 'Emails', 'Clientes chaudes', 'Retraite'];
+        const values = [2000, 600, 60, 10];
+        const max = 2000;
+        const barWidth = 40;
+        const gap = 30;
+        const xStart = 40;
+        const yBase = 170;
+        ctx.font = '11px sans-serif';
+        labels.forEach((label, i) => {
+          const h = (values[i] / max) * 120;
+          const x = xStart + i * (barWidth + gap);
+          const y = yBase - h;
+          ctx.fillStyle = 'rgba(33,128,141,0.8)';
+          ctx.fillRect(x, y, barWidth, h);
+          ctx.fillStyle = '#123';
+          ctx.fillText(label, x - 8, yBase + 15);
+          ctx.fillText(values[i], x, y - 5);
+        });
+      }
+
+      const pie = document.getElementById('funnelPieChart');
+      if (pie && pie.getContext) {
+        const ctx2 = pie.getContext('2d');
+        const data = [
+          { label: 'Offres découverte', value: 1000 },
+          { label: 'Programmes en ligne', value: 4000 },
+          { label: 'Retraites', value: 12000 }
+        ];
+        const total = data.reduce((acc,d)=>acc+d.value,0);
+        let startAngle = 0;
+        const colors = ['#21808d','#32b8c6','#f4b400'];
+        data.forEach((d,i)=>{
+          const slice = (d.value/total)*Math.PI*2;
+          const endAngle = startAngle + slice;
+          ctx2.beginPath();
+          ctx2.moveTo(130,100);
+          ctx2.arc(130,100,80,startAngle,endAngle);
+          ctx2.closePath();
+          ctx2.fillStyle = colors[i];
+          ctx2.fill();
+          startAngle = endAngle;
+        });
+        ctx2.font='11px sans-serif';
+        data.forEach((d,i)=>{
+          ctx2.fillStyle = colors[i];
+          ctx2.fillRect(220,30+i*20,10,10);
+          ctx2.fillStyle='#fff';
+          ctx2.fillText(d.label,235,39+i*20);
+        });
+      }
+    });
+  </script>
 </body>
 </html>
