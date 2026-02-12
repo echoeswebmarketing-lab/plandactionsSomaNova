@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabbed Navigation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .tab {
+            display: none;
+        }
+        .tab-button {
+            padding: 10px 15px;
+            cursor: pointer;
+            background: #f1f1f1;
+            border: none;
+            border-radius: 5px;
+            margin-right: 5px;
+        }
+        .tab-button.active {
+            background: #ccc;
+        }
+        .tab-content {
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+    </style>
+    <script>
+        function showTab(tabId) {
+            var tabs = document.getElementsByClassName('tab');
+            for (var i = 0; i < tabs.length; i++) {
+                tabs[i].style.display = 'none';
+            }
+            document.getElementById(tabId).style.display = 'block';
+            var buttons = document.getElementsByClassName('tab-button');
+            for (var i = 0; i < buttons.length; i++) {
+                buttons[i].classList.remove('active');
+            }
+            event.currentTarget.classList.add('active');
+        }
+        window.onload = function() {
+            showTab('accueil'); // show default tab
+        };
+    </script>
+</head>
+<body>
+    <h1>Tabbed Navigation Example</h1>
+    <div>
+        <button class="tab-button active" onclick="showTab('accueil')">Accueil</button>
+        <button class="tab-button" onclick="showTab('audit')">Audit</button>
+        <button class="tab-button" onclick="showTab('blog')">Blog</button>
+        <button class="tab-button" onclick="showTab('tunnel')">Tunnel</button>
+    </div>
+    <div id="accueil" class="tab">
+        <h2>Accueil</h2>
+        <p>Content for Accueil goes here.</p>
+    </div>
+    <div id="audit" class="tab">
+        <h2>Audit</h2>
+        <p>Content for Audit goes here.</p>
+    </div>
+    <div id="blog" class="tab">
+        <h2>Blog</h2>
+        <p>Content for Blog goes here.</p>
+    </div>
+    <div id="tunnel" class="tab">
+        <h2>Tunnel</h2>
+        <p>Content for Tunnel goes here.</p>
+    </div>
+</body>
+</html>
