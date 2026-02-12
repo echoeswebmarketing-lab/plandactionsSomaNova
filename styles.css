@@ -1,0 +1,15 @@
+.container {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+h1 {
+    font-size: 2em;
+    color: #333;
+}
+
+p {
+    line-height: 1.5;
+    color: #666;
+}
