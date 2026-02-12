@@ -1,36 +1,59 @@
 <!DOCTYPE html>
-<!-- saved from url=(0069)https://echoeswebmarketing-lab.github.io/plandactionsSomaNova/#tunnel -->
-<html lang="fr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  
+<html lang="fr">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <title>SOMA NOVA – Plan d'Action Stratégie Digitale</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Typographie moderne bien-être -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Librairie pour l'export PDF -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
   <style>
     :root {
-      --color-cream-50: #fcfcf9;
-      --color-teal-300: #32b8c6;
-      --color-teal-500: #21808d;
-      --color-teal-600: #1d7480;
-      --color-gray-200: #f5f5f5;
-      --color-gray-300: #a7a9a9;
-      --color-gray-400: #777c7c;
-      --color-slate-500: #626c71;
-      --color-slate-900: #13343b;
-      --shadow-sm: 0 1px 3px rgba(0,0,0,0.04);
-      --shadow-md: 0 4px 6px rgba(0,0,0,0.08);
+      /* Palette bien-être moderne */
+      --color-cream-50: #faf7f3;
+      --color-cream-100: #f4eee7;
+      --color-teal-300: #5fd0c4;
+      --color-teal-500: #1fa8a6;
+      --color-teal-600: #158086;
+      --color-teal-700: #0f656a;
+      --color-sage-200: #dce9e2;
+      --color-sage-400: #9cb7aa;
+      --color-gray-100: #f5f5f7;
+      --color-gray-200: #e4e5ea;
+      --color-gray-300: #b3b6c2;
+      --color-gray-400: #8a8fa0;
+      --color-slate-500: #5f6470;
+      --color-slate-900: #18212f;
+      --color-gold: #f5c26b;
+      --shadow-sm: 0 10px 30px rgba(10, 47, 63, 0.06);
+      --shadow-md: 0 18px 45px rgba(12, 50, 70, 0.12);
+      --radius-card: 18px;
+      --radius-pill: 999px;
     }
-    * { box-sizing:border-box; margin:0; padding:0; }
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      background: var(--color-cream-50);
-      color: var(--color-slate-900);
-      line-height: 1.6;
-    }
-    a { color: var(--color-teal-600); }
 
+    * { box-sizing:border-box; margin:0; padding:0; }
+
+    body {
+      font-family: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: radial-gradient(circle at top, #fdf7ef 0, #f4f9f7 40%, #edf4f9 100%);
+      color: var(--color-slate-900);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: var(--color-teal-600); text-decoration:none; }
+    a:hover { text-decoration:underline; }
+
+    /* HEADER */
     .header {
-      background:white;
-      border-bottom:2px solid var(--color-teal-300);
-      padding:16px 0;
+      background: rgba(255,255,255,0.9);
+      backdrop-filter: blur(18px);
+      border-bottom:1px solid rgba(255,255,255,0.6);
+      padding:14px 0;
       position:sticky;
       top:0;
       z-index:100;
@@ -48,79 +71,176 @@
     }
     .logo {
       font-weight:700;
-      font-size:20px;
-      color:var(--color-teal-600);
+      font-size:22px;
+      letter-spacing:0.06em;
+      color:var(--color-teal-700);
+      display:flex;
+      align-items:center;
+      gap:8px;
     }
+    .logo::before {
+      content:"";
+      width:22px;
+      height:22px;
+      border-radius:12px;
+      background:conic-gradient(from 160deg, #fdf4e3, #5fd0c4, #1fa8a6, #f5c26b, #fdf4e3);
+      box-shadow:0 0 0 4px rgba(95,208,196,0.18);
+    }
+
+    nav {
+      display:flex;
+      gap:4px;
+      padding:4px;
+      border-radius: var(--radius-pill);
+      background: rgba(244, 248, 249, 0.9);
+    }
+
     nav button {
-      font-size:14px;
+      font-size:13px;
       color:var(--color-slate-500);
-      text-decoration:none;
-      margin-right:16px;
       border: none;
       background: transparent;
       cursor: pointer;
-      padding: 8px 12px;
-      font-weight: 600;
-      border-bottom: 2px solid transparent;
-      transition: all 0.2s;
+      padding:8px 14px;
+      font-weight: 500;
+      border-radius: var(--radius-pill);
+      transition: all 0.2s ease;
+      position:relative;
     }
-    nav button:hover { color:var(--color-teal-600); }
-    nav button.active { 
+    nav button::after {
+      content:"";
+      position:absolute;
+      left:16px;
+      right:16px;
+      bottom:4px;
+      height:2px;
+      border-radius:10px;
+      background:transparent;
+      transition:background 0.2s, transform 0.2s, opacity 0.2s;
+      transform:scaleX(0.6);
+      opacity:0;
+    }
+    nav button:hover {
       color:var(--color-teal-600);
-      border-bottom-color: var(--color-teal-600);
+      background: rgba(255,255,255,0.9);
     }
-    .header-buttons { display:flex; gap:8px; }
+    nav button.active {
+      color:#fff;
+      background:linear-gradient(135deg, var(--color-teal-500), var(--color-teal-700));
+      box-shadow:0 10px 25px rgba(21,128,134,0.25);
+    }
+    nav button.active::after {
+      background:rgba(255,255,255,0.9);
+      opacity:1;
+      transform:scaleX(1);
+    }
+
+    .header-buttons { display:flex; gap:8px; flex-wrap: wrap; }
+
     .btn {
       border:none;
-      border-radius:8px;
+      border-radius:var(--radius-pill);
       padding:8px 16px;
-      font-size:14px;
-      font-weight:600;
+      font-size:13px;
+      font-weight:500;
       cursor:pointer;
-      transition:all .2s;
+      transition:all .2s ease;
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      white-space:nowrap;
     }
-    .btn-edit { background:var(--color-teal-500); color:white; }
-    .btn-edit:hover { background:var(--color-teal-600); }
-    .btn-print { background:var(--color-slate-500); color:white; }
-    .btn-print:hover { opacity:.9; }
+    .btn-print {
+      background:#fff;
+      color:var(--color-slate-500);
+      border:1px solid var(--color-gray-200);
+    }
+    .btn-print:hover {
+      background:var(--color-gray-100);
+    }
+    .btn-export {
+      background:linear-gradient(135deg, var(--color-teal-500), var(--color-teal-700));
+      color:white;
+      box-shadow:0 12px 28px rgba(13, 116, 122, 0.28);
+      border:1px solid rgba(255,255,255,0.5);
+    }
+    .btn-export:hover {
+      filter:brightness(1.03);
+      transform:translateY(-1px);
+      box-shadow:0 16px 38px rgba(13,116,122,0.35);
+    }
 
-    .container { max-width:1000px; margin:32px auto; padding:0 20px; }
+    .container { max-width:1000px; margin:32px auto 40px; padding:0 20px; }
 
     .tabcontent { display: none; }
-    .tabcontent.active { display: block; }
+    .tabcontent.active { display: block; animation:fadeIn 0.35s ease; }
 
+    @keyframes fadeIn {
+      from { opacity:0; transform: translateY(6px); }
+      to { opacity:1; transform:translateY(0); }
+    }
+
+    /* HERO */
     .hero {
-      background:linear-gradient(135deg, var(--color-teal-500), var(--color-teal-600));
+      background: radial-gradient(circle at top left, rgba(245,194,107,0.35), transparent 55%),
+                  radial-gradient(circle at top right, rgba(95,208,196,0.5), transparent 55%),
+                  linear-gradient(135deg, var(--color-teal-600), #164158);
       color:white;
-      padding:40px 24px;
-      border-radius:12px;
+      padding:36px 24px 30px;
+      border-radius:26px;
       text-align:center;
       box-shadow:var(--shadow-md);
       margin-bottom:32px;
+      position:relative;
+      overflow:hidden;
     }
-    .hero h1 { font-size:28px; margin-bottom:8px; }
-    .hero p { font-size:16px; }
+    .hero::after {
+      content:"";
+      position:absolute;
+      inset:14px;
+      border-radius:22px;
+      border:1px solid rgba(255,255,255,0.18);
+      pointer-events:none;
+    }
+    .hero h1 { font-size:28px; margin-bottom:8px; letter-spacing:0.02em; }
+    .hero p { font-size:15px; opacity:0.92; max-width:540px; margin:0 auto; }
 
+    /* SECTIONS */
     .section {
-      background:white;
-      border-radius:12px;
-      padding:32px 24px;
-      margin-bottom:24px;
-      border-left:4px solid var(--color-teal-500);
+      background:linear-gradient(145deg, rgba(255,255,255,0.98), rgba(244,248,246,0.96));
+      border-radius:var(--radius-card);
+      padding:26px 22px;
+      margin-bottom:22px;
+      border:1px solid rgba(210,222,220,0.9);
       box-shadow:var(--shadow-sm);
+      position:relative;
+      overflow:hidden;
     }
+    .section::before {
+      content:"";
+      position:absolute;
+      inset:0;
+      background:radial-gradient(circle at top left, rgba(95,208,196,0.08), transparent 55%);
+      opacity:0.8;
+      pointer-events:none;
+    }
+    .section > * { position:relative; }
+
     .section h2 {
-      font-size:22px;
-      margin-bottom:12px;
-      color:var(--color-teal-600);
+      font-size:20px;
+      margin-bottom:10px;
+      color:var(--color-teal-700);
+      display:flex;
+      align-items:center;
+      gap:8px;
     }
     .section h3 {
-      font-size:18px;
-      margin-top:20px;
+      font-size:17px;
+      margin-top:16px;
       margin-bottom:8px;
       color:var(--color-slate-900);
     }
-    .section p { margin-bottom:10px; color:var(--color-slate-500); }
+    .section p { margin-bottom:8px; color:var(--color-slate-500); font-size:14px; }
 
     .cards-grid {
       display:grid;
@@ -129,47 +249,66 @@
       margin:16px 0;
     }
     .card {
-      background:var(--color-gray-200);
-      padding:16px;
-      border-radius:10px;
-      border:1px solid var(--color-teal-300);
+      background:rgba(255,255,255,0.9);
+      padding:16px 15px;
+      border-radius:16px;
+      border:1px solid rgba(214,223,224,0.9);
       font-size:14px;
+      box-shadow:0 6px 18px rgba(18,58,80,0.04);
+      transition:transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
     }
     .card h4 {
       font-size:15px;
-      margin-bottom:6px;
+      margin-bottom:4px;
       color:var(--color-teal-600);
+    }
+    .card:hover {
+      transform:translateY(-2px);
+      border-color:var(--color-teal-300);
+      box-shadow:0 12px 30px rgba(18,58,80,0.12);
     }
 
     .callout {
-      background:rgba(50,184,198,0.08);
+      background:rgba(95,208,196,0.08);
       border-left:4px solid var(--color-teal-500);
-      padding:16px;
-      border-radius:6px;
+      padding:14px 14px 14px 16px;
+      border-radius:12px;
       margin-top:12px;
+      font-size:14px;
+      color:var(--color-slate-500);
     }
 
-    ul { margin-left:20px; margin-top:4px; }
+    ul { margin-left:20px; margin-top:4px; font-size:14px; color:var(--color-slate-500); }
+    ul li { margin-bottom:4px; }
 
     .pricing-table {
       width:100%;
       border-collapse:collapse;
       margin-top:12px;
       font-size:14px;
+      background:white;
+      border-radius:14px;
+      overflow:hidden;
+      box-shadow:0 10px 28px rgba(18,58,80,0.08);
     }
+    .pricing-table thead { box-shadow:0 1px 0 rgba(230,234,238,0.9); }
     .pricing-table th {
-      background:var(--color-teal-500);
+      background:linear-gradient(135deg, var(--color-teal-500), var(--color-teal-700));
       color:white;
-      padding:8px;
+      padding:10px 10px;
       text-align:left;
+      font-weight:500;
     }
     .pricing-table td {
-      padding:8px;
-      border-bottom:1px solid var(--color-gray-200);
+      padding:8px 10px;
+      border-bottom:1px solid var(--color-gray-100);
+      background:white;
     }
+    .pricing-table tr:nth-child(even) td { background:#fafbfc; }
     .pricing-old { text-decoration:line-through; color:var(--color-gray-400); }
     .pricing-new { color:#d32f2f; font-weight:700; }
 
+    /* Onglets internes blog */
     .tabs {
       display:flex;
       gap:8px;
@@ -181,11 +320,13 @@
       border:none;
       background:transparent;
       padding:8px 12px;
-      font-size:14px;
+      font-size:13px;
       cursor:pointer;
-      font-weight:600;
+      font-weight:500;
       color:var(--color-gray-400);
       border-bottom:2px solid transparent;
+      border-radius:0;
+      transition:all 0.2s;
     }
     .tab-btn.active {
       color:var(--color-teal-600);
@@ -195,20 +336,24 @@
     .tab-content.active { display:block; }
 
     .footer {
-      background:var(--color-slate-900);
+      background:linear-gradient(135deg, #0f2835, #111827);
       color:white;
       text-align:center;
-      padding:24px 12px;
+      padding:22px 12px 26px;
       margin-top:32px;
-      font-size:13px;
+      font-size:12px;
+      border-top:1px solid rgba(255,255,255,0.04);
     }
-    .footer a { color:white; text-decoration:underline; }
+    .footer a { color:#e5f5ff; text-decoration:underline; }
 
     @media (max-width:768px) {
-      .header-container { flex-direction:column; align-items:flex-start; }
+      .header-container { flex-direction:column; align-items:flex-start; gap:10px; }
       .hero h1 { font-size:22px; }
-      nav { width: 100%; }
-      nav button { flex: 1; }
+      nav { width: 100%; justify-content:space-between; }
+      nav button { flex: 1; text-align:center; }
+      .header-buttons { width:100%; justify-content:flex-start; }
+      .hero { padding:26px 18px 22px; }
+      .section { padding:20px 16px; }
     }
   </style>
 </head>
@@ -217,16 +362,17 @@
   <!-- HEADER -->
   <header class="header">
     <div class="header-container">
-      <div class="logo">✨ SOMA NOVA</div>
+      <div class="logo">SOMA NOVA</div>
       <nav>
-        <button onclick="switchMainTab('accueil')" class="nav-btn active">Accueil</button>
-        <button onclick="switchMainTab('audit')" class="nav-btn">Audit</button>
-        <button onclick="switchMainTab('blog')" class="nav-btn">Blog</button>
-        <button onclick="switchMainTab('tunnel')" class="nav-btn">Tunnel de vente</button>
+        <button onclick="switchMainTab(event,'accueil')" class="nav-btn active">Accueil</button>
+        <button onclick="switchMainTab(event,'audit')" class="nav-btn">Audit</button>
+        <button onclick="switchMainTab(event,'blog')" class="nav-btn">Blog</button>
+        <button onclick="switchMainTab(event,'tunnel')" class="nav-btn">Tunnel de vente</button>
       </nav>
       <div class="header-buttons">
-        <button class="btn btn-edit" onclick="alert('Mode édition : copiez ce fichier dans votre éditeur et modifiez le texte directement.');">✏️ Mode édition</button>
-        <button class="btn btn-print" onclick="window.print()">🖨️ Imprimer / PDF</button>
+        <button class="btn btn-print" onclick="window.print()">🖨️ Imprimer</button>
+        <button class="btn btn-export" onclick="exportToPDF()">📄 Exporter PDF</button>
+        <button class="btn btn-export" onclick="exportToWord()">📝 Exporter Word</button>
       </div>
     </div>
   </header>
@@ -475,352 +621,4 @@
       <!-- RÉCAP TARIFS -->
       <section class="section">
         <h2>🎯 Récapitulatif tarification</h2>
-        <table class="pricing-table">
-          <thead>
-          <tr>
-            <th>Étape</th>
-            <th>Tarif moyen agence</th>
-            <th>Notre prix</th>
-            <th>Économie</th>
-          </tr>
-          </thead>
-          <tbody>
-          <tr>
-            <td>1. Identité</td>
-            <td class="pricing-old">3 200 €</td>
-            <td class="pricing-new">1 000 €</td>
-            <td style="color:green; font-weight:700;">+2 200 €</td>
-          </tr>
-          <tr>
-            <td>2. Communication</td>
-            <td class="pricing-old">2 800 €</td>
-            <td class="pricing-new">1 000 €</td>
-            <td style="color:green; font-weight:700;">+1 800 €</td>
-          </tr>
-          <tr>
-            <td>3. Scalabilité</td>
-            <td class="pricing-old">3 500 €</td>
-            <td class="pricing-new">1 000 €</td>
-            <td style="color:green; font-weight:700;">+2 500 €</td>
-          </tr>
-          <tr style="background:var(--color-teal-300); color:white; font-weight:700;">
-            <td>Total</td>
-            <td class="pricing-old" style="color:white;">9 500 €</td>
-            <td class="pricing-new" style="color:white;">3 000 €</td>
-            <td>+6 500 €</td>
-          </tr>
-          </tbody>
-        </table>
-      </section>
-
-      <!-- OPTIONS -->
-      <section class="section">
-        <h2>💡 Options supplémentaires</h2>
-        <div class="cards-grid">
-          <div class="card">
-            <h4>Contenu vidéo premium</h4>
-            <p>10 vidéos courtes au lieu de 5.<br><strong>+300 €</strong></p>
-          </div>
-          <div class="card">
-            <h4>Webinaire de lancement</h4>
-            <p>Session live 30–45 min avec replay.<br><strong>+400 €</strong></p>
-          </div>
-          <div class="card">
-            <h4>Design graphique premium</h4>
-            <p>Illustrations originales spécifiques à Soma Nova.<br><strong>+500 €</strong></p>
-          </div>
-          <div class="card">
-            <h4>Coaching d'implémentation</h4>
-            <p>2h/mois pendant 3 mois.<br><strong>+600 €</strong></p>
-          </div>
-        </div>
-      </section>
-
-      <!-- BLOC FINAL -->
-      <section class="section" style="background:linear-gradient(135deg,var(--color-teal-500),var(--color-teal-600)); color:white; text-align:center;">
-        <h2 style="color:white;">Accompagnement Soma Nova</h2>
-        <p style="margin-top:8px;">Pour affiner, ajuster ou lancer ce plan ensemble :</p>
-        <p style="margin-top:16px; font-size:16px;">Julien Parinaud</p>
-        <p>Stratégiste Digitale</p>
-        <p>
-          📧
-          <a href="mailto:Echoeswebmarketing@gmail.com" style="color:white; text-decoration:underline;">
-            Echoeswebmarketing@gmail.com
-          </a>
-        </p>
-      </section>
-    </div>
-
-    <!-- TAB AUDIT -->
-    <div id="audit" class="tabcontent">
-      <section class="section">
-        <h2>🔍 Audit stratégique &amp; technique</h2>
-        <p>L'audit permet de vérifier que les fondations (message, site, technique) soutiennent réellement la transformation que vous proposez.</p>
-
-        <div class="cards-grid">
-          <div class="card">
-            <h4>1️⃣ Audit présence digitale</h4>
-            <p>Clarté du positionnement, cohérence du message, lisibilité des offres pour une personne en surcharge mentale.</p>
-          </div>
-          <div class="card">
-            <h4>2️⃣ Audit technique</h4>
-            <p>Vitesse du site, affichage mobile, SEO de base, sécurité, tracking (Analytics, Search Console, pixels).</p>
-          </div>
-          <div class="card">
-            <h4>3️⃣ Audit expérience client</h4>
-            <p>Parcours "première impression → prise de contact" : obstacles, frictions, informations manquantes.</p>
-          </div>
-        </div>
-
-        <div class="callout">
-          <strong>Livrable audit :</strong> rapport synthétique (PDF + éventuellement vidéo Loom) avec priorisation claire : "À corriger d'urgence", "À optimiser", "À garder".
-        </div>
-
-        <p style="font-size:12px; color:var(--color-gray-400); margin-top:8px;">
-          Le tout supervisé par un UX designer expérimenté dans le bien‑être : lisibilité, simplicité, réduction de la charge mentale.
-        </p>
-      </section>
-    </div>
-
-    <!-- TAB BLOG -->
-    <div id="blog" class="tabcontent">
-      <section class="section">
-        <h2>📰 Blog : trafic, autorité &amp; relation</h2>
-        <p>Le blog est un pilier pour attirer du trafic qualifié, devenir une référence et créer une relation de confiance avec vos lecteurs.</p>
-
-        <div class="cards-grid">
-          <div class="card">
-            <h4>📈 Trafic</h4>
-            <p>Articles optimisés sur les questions de vos personas : burn‑out, crise de sens, souveraineté, corps comme portail.</p>
-          </div>
-          <div class="card">
-            <h4>🌟 Autorité</h4>
-            <p>Guides approfondis, analyses, cas pratiques : vous démontrez la maîtrise de votre sujet.</p>
-          </div>
-          <div class="card">
-            <h4>🤝 Relation</h4>
-            <p>Ton humain, histoires personnelles, vulnérabilité : vos lectrices se sentent vues et accompagnées.</p>
-          </div>
-        </div>
-
-        <div class="tabs">
-          <button class="tab-btn active" onclick="switchBlogTab('blog-role')">Rôle du blog</button>
-          <button class="tab-btn" onclick="switchBlogTab('blog-contenu')">Types d'articles</button>
-          <button class="tab-btn" onclick="switchBlogTab('blog-diffusion')">Diffusion</button>
-        </div>
-
-        <div id="blog-role" class="tab-content active">
-          <p>Le blog sert à :</p>
-          <ul>
-            <li>Répondre aux questions précises de vos clients au moment où ils doutent.</li>
-            <li>Créer un actif long terme : un article peut attirer des lecteurs pendant des années.</li>
-            <li>Préparer naturellement la vente : vos offres prolongent le contenu gratuit.</li>
-          </ul>
-        </div>
-
-        <div id="blog-contenu" class="tab-content">
-          <p>Quatre familles d'articles recommandées :</p>
-          <ul>
-            <li>Guides "fondations" (longs) : burn‑out, transformation somatique, souveraineté.</li>
-            <li>Études de cas anonymisées : avant / après, processus de transformation.</li>
-            <li>Articles pratiques : 3 exercices, micro‑rituels, questions à se poser.</li>
-            <li>Articles de vision : rôle du temps, du corps, de l'alètheia dans votre approche.</li>
-          </ul>
-        </div>
-
-        <div id="blog-diffusion" class="tab-content">
-          <p>Amplifier l'impact des articles :</p>
-          <ul>
-            <li>Relais sur Instagram, LinkedIn et newsletter à chaque nouvelle publication.</li>
-            <li>Contenus invités sur d'autres blogs / podcasts pour toucher de nouveaux publics.</li>
-            <li>Intégration de vidéos et/ou podcasts dans les articles pour renforcer la relation.</li>
-          </ul>
-        </div>
-
-        <h3>Sources de trafic principales</h3>
-        <div class="cards-grid">
-          <div class="card">
-            <h4>🔎 Google</h4>
-            <p>Référencement naturel grâce aux articles ciblés sur vos mots‑clés.</p>
-          </div>
-          <div class="card">
-            <h4>👥 Réseaux sociaux</h4>
-            <p>Posts qui teasent les articles et renvoient vers le site.</p>
-          </div>
-          <div class="card">
-            <h4>💌 Newsletter</h4>
-            <p>Emails qui renvoient régulièrement vers les ressources du blog.</p>
-          </div>
-          <div class="card">
-            <h4>🤝 Partenariats</h4>
-            <p>Articles invités, interviews et collaborations.</p>
-          </div>
-        </div>
-
-        <p style="font-size:12px; color:var(--color-gray-400); margin-top:8px;">
-          UX pensée pour le bien‑être : pages aérées, titres lisibles, lecture confortable même quand l'esprit est déjà saturé.
-        </p>
-      </section>
-    </div>
-
-    <!-- TAB TUNNEL -->
-    <div id="tunnel" class="tabcontent">
-      <section class="section">
-        <h2>🧬 Tunnel de vente : du trafic à la retraite</h2>
-        <p>Le tunnel de vente rend votre croissance prévisible : vous savez combien de personnes doivent entrer pour remplir vos retraites et vos programmes.</p>
-
-        <div class="callout">
-          <strong>Idée clé :</strong> ce n'est pas le manque de visibilité, mais la conversion qui fait la différence.  
-          Le tunnel permet de mesurer et d'améliorer chaque étape.
-        </div>
-
-        <h3>3 grandes phases</h3>
-        <div class="cards-grid">
-          <div class="card">
-            <h4>1️⃣ Attraction</h4>
-            <p>Contenus + publicités ciblées vers vos personas en crise de sens.</p>
-          </div>
-          <div class="card">
-            <h4>2️⃣ Éducation</h4>
-            <p>Lead magnets, mini‑formations, emails de valeur pour créer la confiance.</p>
-          </div>
-          <div class="card">
-            <h4>3️⃣ Conversion</h4>
-            <p>Pages de vente, VSL, appels découverte pour proposer vos offres.</p>
-          </div>
-        </div>
-
-        <h3>Architectures de tunnels adaptées à Soma Nova</h3>
-        <div class="cards-grid">
-          <div class="card">
-            <h4>💬 Conversationnel</h4>
-            <p>Posts organiques → échanges en messages privés → proposition d'accompagnement premium ou retraite.</p>
-          </div>
-          <div class="card">
-            <h4>🎁 Échantillon offert</h4>
-            <p>Mini‑formation / module offert sur Système.io → emails → offre complète (programme ou retraite).</p>
-          </div>
-          <div class="card">
-            <h4>🎥 Vidéo de vente (VSL)</h4>
-            <p>Vidéo de 8–15 minutes qui vend un programme / une retraite 24h/24, intégrée à votre page.</p>
-          </div>
-        </div>
-
-        <h3>Exemple de chiffres pédagogiques – Retraite (10 places)</h3>
-        <ul>
-          <li>2 000 visites sur la page de capture (contenu + pub).</li>
-          <li>30 % laissent leur email → 600 inscrits.</li>
-          <li>10 % des inscrits deviennent "clientes chaudes" → 60 personnes.</li>
-          <li>Entre 15 et 20 % de ces 60 s'inscrivent à la retraite → 9 à 12 ventes (objectif : 10 places).</li>
-        </ul>
-
-        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:16px; margin-top:16px;">
-          <div class="card">
-            <h4>Conversions par étape</h4>
-            <canvas id="funnelBarChart" width="260" height="200"></canvas>
-          </div>
-          <div class="card">
-            <h4>Répartition du chiffre d'affaires</h4>
-            <canvas id="funnelPieChart" width="260" height="200"></canvas>
-          </div>
-        </div>
-
-        <p style="font-size:12px; color:var(--color-gray-400); margin-top:8px;">
-          Chiffres indicatifs, à affiner avec vos données : l'important est de pouvoir suivre et améliorer chaque maillon.
-        </p>
-      </section>
-    </div>
-
-  </main>
-
-  <footer class="footer">
-    <p>Document confidentiel – Plan d'action personnalisé pour SOMA NOVA.</p>
-    <p>Design pensé avec une approche UX bien‑être (clarté, douceur, sécurité).</p>
-  </footer>
-
-  <script>
-    function switchMainTab(tabName) {
-      var tabs = document.getElementsByClassName('tabcontent');
-      for (var i = 0; i < tabs.length; i++) {
-        tabs[i].classList.remove('active');
-      }
-      var buttons = document.querySelectorAll('nav button');
-      for (var i = 0; i < buttons.length; i++) {
-        buttons[i].classList.remove('active');
-      }
-      document.getElementById(tabName).classList.add('active');
-      event.target.classList.add('active');
-    }
-
-    function switchBlogTab(id) {
-      var tabs = document.querySelectorAll('#blog .tab-content');
-      for (var i = 0; i < tabs.length; i++) {
-        tabs[i].classList.remove('active');
-      }
-      var buttons = document.querySelectorAll('#blog .tab-btn');
-      for (var i = 0; i < buttons.length; i++) {
-        buttons[i].classList.remove('active');
-      }
-      document.getElementById(id).classList.add('active');
-      event.target.classList.add('active');
-    }
-
-    window.addEventListener('load', function() {
-      const bar = document.getElementById('funnelBarChart');
-      if (bar && bar.getContext) {
-        const ctx = bar.getContext('2d');
-        const labels = ['Visiteurs', 'Emails', 'Clientes chaudes', 'Retraite'];
-        const values = [2000, 600, 60, 10];
-        const max = 2000;
-        const barWidth = 40;
-        const gap = 30;
-        const xStart = 40;
-        const yBase = 170;
-        ctx.font = '11px sans-serif';
-        labels.forEach((label, i) => {
-          const h = (values[i] / max) * 120;
-          const x = xStart + i * (barWidth + gap);
-          const y = yBase - h;
-          ctx.fillStyle = 'rgba(33,128,141,0.8)';
-          ctx.fillRect(x, y, barWidth, h);
-          ctx.fillStyle = '#123';
-          ctx.fillText(label, x - 8, yBase + 15);
-          ctx.fillText(values[i], x, y - 5);
-        });
-      }
-
-      const pie = document.getElementById('funnelPieChart');
-      if (pie && pie.getContext) {
-        const ctx2 = pie.getContext('2d');
-        const data = [
-          { label: 'Offres découverte', value: 1000 },
-          { label: 'Programmes en ligne', value: 4000 },
-          { label: 'Retraites', value: 12000 }
-        ];
-        const total = data.reduce((acc,d)=>acc+d.value,0);
-        let startAngle = 0;
-        const colors = ['#21808d','#32b8c6','#f4b400'];
-        data.forEach((d,i)=>{
-          const slice = (d.value/total)*Math.PI*2;
-          const endAngle = startAngle + slice;
-          ctx2.beginPath();
-          ctx2.moveTo(130,100);
-          ctx2.arc(130,100,80,startAngle,endAngle);
-          ctx2.closePath();
-          ctx2.fillStyle = colors[i];
-          ctx2.fill();
-          startAngle = endAngle;
-        });
-        ctx2.font='11px sans-serif';
-        data.forEach((d,i)=>{
-          ctx2.fillStyle = colors[i];
-          ctx2.fillRect(220,30+i*20,10,10);
-          ctx2.fillStyle='#fff';
-          ctx2.fillText(d.label,235,39+i*20);
-        });
-      }
-    });
-  </script>
-
-</body>
-</html>
+        <table c
